@@ -1,0 +1,26 @@
+<resources>
+    <string name="app_name">ProfessionalOrientation</string>
+
+    <string name="q1">Что ты сделаешь с неизвестной тебе проблемой: найдешь решение в Интернете или придумаешь свое?</string>
+    <string name="q2">Было бы тебе интересно разработать свой сайт?</string>
+    <string name="q3">Хорошо ли ты знал математику в школе?</string>
+    <string name="q4">Вы хотите связать себя с компьютерными играми?</string>
+    <string name="q5">Вы хотите связать себя с компьютерными играми?</string>
+    <string name="q6">Хочешь ли ты защищать системы от атак хакеров?</string>
+    <string name="q7">Чему бы ты отвел больше времени: проектированию или программированию?</string>
+
+    <string name="a2">Свое решение</string>
+    <string name="a3">Интернет</string>
+    <string name="a4">Да, интересно</string>
+    <string name="a5">Нет, не интересно</string>
+    <string name="a6">Отлично знал!</string>
+    <string name="a7">Средне знал</string>
+    <string name="a8">Да</string>
+    <string name="a9">Нет</string>
+    <string name="a10">Да, хочу</string>
+    <string name="a11">Нет, не хочу</string>
+    <string name="a12">Ага, хочу</string>
+    <string name="a13">Не, не особо</string>
+    <string name="a14">Проектированию</string>
+    <string name="a15">Программированию</string>
+</resources>
