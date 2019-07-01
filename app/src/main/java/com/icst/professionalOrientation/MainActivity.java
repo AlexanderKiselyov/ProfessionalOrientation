@@ -12,23 +12,18 @@ public class MainActivity extends AppCompatActivity
     private TextView question; // поле с вопросом
     private Button button1; // первая кнопка (левая)
     private Button button2; // вторая кнопка (правая)
-    private int curQuestionNum; // номер текущего вопроса
+    private int curQuestionNum = 1; // номер текущего вопроса
 
     @Override
     protected void onCreate(Bundle savedInstanceState)
     {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-    }
 
-    // обработка события нажатия на кнопку "НАЧАТЬ ТЕСТ"
-    public void ButtonStartClick(View v)
-    {
-        setContentView(R.layout.test);
         question = (TextView)findViewById(R.id.question);
         button1 = (Button)findViewById(R.id.firstButton);
         button2 = (Button)findViewById(R.id.secondButton);
-        curQuestionNum = 1;
+
         ShowQuestionAndChoices(curQuestionNum);
     }
 
@@ -37,17 +32,17 @@ public class MainActivity extends AppCompatActivity
     private void ShowQuestionAndChoices(int num)
     {
         String curQuestionText = CurQuestionText(num);
-        if (curQuestionText != "")
+        if (curQuestionText == "")
+        {
+
+        }
+        else
         {
             String curAnswer1Text = CurAnswerText(2 * num);
             String curAnswer2Text = CurAnswerText(2 * num + 1);
             question.setText(curQuestionText);
             button1.setText(curAnswer1Text);
             button2.setText(curAnswer2Text);
-        }
-        else
-        {
-            setContentView(R.layout.results);
         }
     }
 
@@ -65,7 +60,7 @@ public class MainActivity extends AppCompatActivity
     }
 
     // ищет текущий вариант ответа по номеру
-    // return текст текущего варианта ответа (он имеется, т.к. есть текст вопроса, к которому он принадлежит)
+    // return текст текущего варианта ответа, если есть, иначе - пустая строка
     private String CurAnswerText(int num)
     {
         int answerId = getResources().getIdentifier("a" + num, "string", "com.icst.professionalOrientation");
@@ -85,10 +80,5 @@ public class MainActivity extends AppCompatActivity
     {
         curQuestionNum = 2 * curQuestionNum + 1;
         ShowQuestionAndChoices(curQuestionNum);
-    }
-
-    public void ButtonMenuClick(View v)
-    {
-        setContentView(R.layout.activity_main);
     }
 }
