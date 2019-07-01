@@ -32,11 +32,7 @@ public class MainActivity extends AppCompatActivity
     private void ShowQuestionAndChoices(int num)
     {
         String curQuestionText = CurQuestionText(num);
-        if (curQuestionText == "")
-        {
-
-        }
-        else
+        if (curQuestionText != "")
         {
             String curAnswer1Text = CurAnswerText(2 * num);
             String curAnswer2Text = CurAnswerText(2 * num + 1);
