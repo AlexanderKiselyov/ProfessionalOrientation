@@ -25,7 +25,8 @@
         <Button
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Специальности" />
+            android:onClick="ButtonProfessionsClick"
+            android:text="Профессии" />
 
         <Button
             android:layout_width="match_parent"
