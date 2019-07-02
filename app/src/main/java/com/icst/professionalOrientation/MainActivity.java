@@ -15,8 +15,6 @@ public class MainActivity extends AppCompatActivity {
     private Button button1; // первая кнопка (левая)
     private Button button2; // вторая кнопка (правая)
     private int curQuestionNum; // номер текущего вопроса
-    private TextView professions; // форма для вывода рекомендуемых IT профессий
-    private TextView allProfessions; // форма для вывода всех IT профессий
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -28,9 +26,9 @@ public class MainActivity extends AppCompatActivity {
     public void ButtonStartClick(View v)
     {
         setContentView(R.layout.test);
-        question = (TextView) findViewById(R.id.question);
-        button1 = (Button) findViewById(R.id.firstButton);
-        button2 = (Button) findViewById(R.id.secondButton);
+        question = findViewById(R.id.question);
+        button1 = findViewById(R.id.firstButton);
+        button2 = findViewById(R.id.secondButton);
         curQuestionNum = 1;
         ShowQuestionAndChoices(curQuestionNum);
     }
@@ -39,14 +37,14 @@ public class MainActivity extends AppCompatActivity {
     public void ButtonProfessionsClick(View v)
     {
         setContentView(R.layout.all_professions);
-        allProfessions = (TextView) findViewById(R.id.all_professions);
+        TextView allProfessions = findViewById(R.id.all_professions); // форма для вывода всех IT профессий
         String[] prof = getResources().getStringArray(R.array.professions);
         String[] desc = getResources().getStringArray(R.array.descriptions);
         for (int i = 0; i < prof.length; i++)
         {
             SpannableString buf =  new SpannableString(prof[i]);
             buf.setSpan(new RelativeSizeSpan(2f), 0, prof[i].length(), Spanned.SPAN_EXCLUSIVE_INCLUSIVE);
-            allProfessions.append(buf);;
+            allProfessions.append(buf);
             allProfessions.append("\n\n");
             buf = new SpannableString(desc[i]);
             buf.setSpan(new RelativeSizeSpan(0.5f), 0, desc[i].length(), Spanned.SPAN_EXCLUSIVE_INCLUSIVE);
@@ -63,24 +61,24 @@ public class MainActivity extends AppCompatActivity {
 
     // выводит очередной вопрос и варианты ответа на экран
     // return текст вопроса и варианты ответа на экране, иначе - результаты опроса
-    private void ShowQuestionAndChoices(int num) {
-        String curQuestionText = CurQuestionText(num);
-        if (curQuestionText != "")
+    private void ShowQuestionAndChoices(int num)
+    {
+        int questionId = getApplicationContext().getResources().getIdentifier("q" + num, "array", getPackageName());
+        if (questionId != 0)
         {
-            String curAnswer1Text = CurAnswerText(2 * num);
-            String curAnswer2Text = CurAnswerText(2 * num + 1);
-            question.setText(curQuestionText);
-            button1.setText(curAnswer1Text);
-            button2.setText(curAnswer2Text);
+            String[] questionWithAnswers = getResources().getStringArray(questionId);
+            question.setText(questionWithAnswers[0]);
+            button1.setText(questionWithAnswers[1]);
+            button2.setText(questionWithAnswers[2]);
         }
         else
         {
             setContentView(R.layout.results);
-            professions = (TextView) findViewById(R.id.professions);
+            TextView professions = findViewById(R.id.professions); // форма для вывода рекомендуемых IT профессий
             int[] recomProf = RecomProf(num);
             String[] prof = getResources().getStringArray(R.array.professions);
             String[] desc = getResources().getStringArray(R.array.descriptions);
-            for (int i = 0; i < recomProf.length; i++)
+            for (int i : recomProf)
             {
                 if (recomProf[i] != 0)
                 {
@@ -97,33 +95,14 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
-    // ищет текущий вопрос по номеру
-    // return текст текущего вопроса, если есть, иначе - пустая строка
-    private String CurQuestionText(int num) {
-        String questionText = "";
-        int questionId = getApplicationContext().getResources().getIdentifier("q" + num, "string", "com.icst.professionalOrientation");
-        if (questionId != 0) {
-            questionText = getResources().getString(questionId);
-        }
-        return questionText;
-    }
-
-    // ищет текущий вариант ответа по номеру
-    // return текст текущего варианта ответа (он имеется, т.к. есть текст вопроса, к которому он принадлежит)
-    private String CurAnswerText(int num) {
-        int answerId = getResources().getIdentifier("a" + num, "string", "com.icst.professionalOrientation");
-        String answerText = getApplicationContext().getResources().getString(answerId);
-        return answerText;
-    }
-
-    // обработка события нажатия на кнопку 1
+    // обработка события нажатия на кнопку ответа 1
     public void Button1Click(View v)
     {
         curQuestionNum *= 2;
         ShowQuestionAndChoices(curQuestionNum);
     }
 
-    // обработка события нажатия на кнопку 2
+    // обработка события нажатия на кнопку ответа 2
     public void Button2Click(View v)
     {
         curQuestionNum = 2 * curQuestionNum + 1;
