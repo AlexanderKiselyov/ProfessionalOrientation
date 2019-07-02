@@ -2,13 +2,12 @@ package com.icst.professionalOrientation;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.widget.ScrollView;
 import android.widget.TextView;
 import android.view.View;
 import android.widget.Button;
-import android.R.xml;
-import android.util.Log;
-import org.xmlpull.v1.XmlPullParser;
+import android.text.SpannableString;
+import android.text.style.RelativeSizeSpan;
+import android.text.Spanned;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -36,20 +35,30 @@ public class MainActivity extends AppCompatActivity {
         ShowQuestionAndChoices(curQuestionNum);
     }
 
-    // обработка события нажатия на кнопку "СПЕЦИАЛЬНОСТИ"
+    // обработка события нажатия на кнопку "ПРОФЕССИИ"
     public void ButtonProfessionsClick(View v)
     {
         setContentView(R.layout.all_professions);
         allProfessions = (TextView) findViewById(R.id.all_professions);
         String[] prof = getResources().getStringArray(R.array.professions);
-        String[] desc = getResources().getStringArray(R.array.description);
+        String[] desc = getResources().getStringArray(R.array.descriptions);
         for (int i = 0; i < prof.length; i++)
         {
-            allProfessions.append(prof[i]);
+            SpannableString buf =  new SpannableString(prof[i]);
+            buf.setSpan(new RelativeSizeSpan(2f), 0, prof[i].length(), Spanned.SPAN_EXCLUSIVE_INCLUSIVE);
+            allProfessions.append(buf);;
             allProfessions.append("\n\n");
-            allProfessions.append(desc[i]);
+            buf = new SpannableString(desc[i]);
+            buf.setSpan(new RelativeSizeSpan(0.5f), 0, desc[i].length(), Spanned.SPAN_EXCLUSIVE_INCLUSIVE);
+            allProfessions.append(buf);
             allProfessions.append("\n\n\n");
         }
+    }
+
+    // обработка события нажатия на кнопку "ИНФОРМАЦИЯ"
+    public void ButtonAboutClick(View v)
+    {
+        setContentView(R.layout.about);
     }
 
     // выводит очередной вопрос и варианты ответа на экран
@@ -70,14 +79,18 @@ public class MainActivity extends AppCompatActivity {
             professions = (TextView) findViewById(R.id.professions);
             int[] recomProf = RecomProf(num);
             String[] prof = getResources().getStringArray(R.array.professions);
-            String[] desc = getResources().getStringArray(R.array.description);
+            String[] desc = getResources().getStringArray(R.array.descriptions);
             for (int i = 0; i < recomProf.length; i++)
             {
                 if (recomProf[i] != 0)
                 {
-                    professions.append(prof[recomProf[i] - 1]);
+                    SpannableString buf =  new SpannableString(prof[recomProf[i] - 1]);
+                    buf.setSpan(new RelativeSizeSpan(2f), 0, prof[recomProf[i] - 1].length(), Spanned.SPAN_EXCLUSIVE_INCLUSIVE);
+                    professions.append(buf);
                     professions.append("\n\n");
-                    professions.append(desc[recomProf[i] - 1]);
+                    buf = new SpannableString(desc[recomProf[i] - 1]);
+                    buf.setSpan(new RelativeSizeSpan(0.5f), 0, desc[recomProf[i] - 1].length(), Spanned.SPAN_EXCLUSIVE_INCLUSIVE);
+                    professions.append(buf);
                     professions.append("\n\n\n");
                 }
             }
@@ -104,19 +117,22 @@ public class MainActivity extends AppCompatActivity {
     }
 
     // обработка события нажатия на кнопку 1
-    public void Button1Click(View v) {
+    public void Button1Click(View v)
+    {
         curQuestionNum *= 2;
         ShowQuestionAndChoices(curQuestionNum);
     }
 
     // обработка события нажатия на кнопку 2
-    public void Button2Click(View v) {
+    public void Button2Click(View v)
+    {
         curQuestionNum = 2 * curQuestionNum + 1;
         ShowQuestionAndChoices(curQuestionNum);
     }
 
     // обработка события нажатия на кнопку "МЕНЮ"
-    public void ButtonMenuClick(View v) {
+    public void ButtonMenuClick(View v)
+    {
         curQuestionNum = 1;
         setContentView(R.layout.activity_main);
     }

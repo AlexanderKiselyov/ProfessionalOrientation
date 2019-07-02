@@ -11,15 +11,16 @@
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Профессии из сферы\nинформационных технологий"
+            android:text="Информация о приложении"
             android:textSize="30sp"
             android:textAlignment="center"
             android:layout_margin="5dp" />
         <TextView
-            android:id="@+id/all_professions"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_margin="10dp" />
+            android:textSize="20sp"
+            android:text="@string/about"
+            android:layout_margin="5dp"/>
         <Button
             android:id="@id/menu"
             android:layout_width="match_parent"
