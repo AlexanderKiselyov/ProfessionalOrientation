@@ -9,6 +9,8 @@ import android.text.SpannableString;
 import android.text.style.RelativeSizeSpan;
 import android.text.Spanned;
 
+import java.util.function.ToIntFunction;
+
 public class MainActivity extends AppCompatActivity {
 
     private TextView question; // поле с вопросом
@@ -16,15 +18,25 @@ public class MainActivity extends AppCompatActivity {
     private Button button2; // вторая кнопка (правая)
     private int curQuestionNum; // номер текущего вопроса
 
+    private  int[] recom_prof = new int[3]; // список рекомендуемых профессий
+    private int leftButton = -1; // та профессия которая добавится при нажатии левой кнопки
+    private int rightButton = -1; // та профессия которая добавится при нажатии правой кнопки
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        for (int i=0; recom_prof.length>i;i++)
+        {
+            recom_prof[i]=-1;
+        }
         setContentView(R.layout.activity_main);
     }
 
     // обработка события нажатия на кнопку "НАЧАТЬ ТЕСТ"
     public void ButtonStartClick(View v)
     {
+
         setContentView(R.layout.test);
         question = findViewById(R.id.question);
         button1 = findViewById(R.id.firstButton);
@@ -70,27 +82,33 @@ public class MainActivity extends AppCompatActivity {
             question.setText(questionWithAnswers[0]);
             button1.setText(questionWithAnswers[1]);
             button2.setText(questionWithAnswers[2]);
+            leftButton = Integer.parseInt(questionWithAnswers[3]);
+            rightButton = Integer.parseInt(questionWithAnswers[4]);
         }
         else
         {
             setContentView(R.layout.results);
             TextView professions = findViewById(R.id.professions); // форма для вывода рекомендуемых IT профессий
-            int[] recomProf = RecomProf(num);
             String[] prof = getResources().getStringArray(R.array.professions);
             String[] desc = getResources().getStringArray(R.array.descriptions);
-            for (int i : recomProf)
+            for (int i=0; recom_prof.length>i;i++)
             {
-                if (recomProf[i] != 0)
+                if (recom_prof[i] != -1)
                 {
-                    SpannableString buf =  new SpannableString(prof[recomProf[i] - 1]);
-                    buf.setSpan(new RelativeSizeSpan(2f), 0, prof[recomProf[i] - 1].length(), Spanned.SPAN_EXCLUSIVE_INCLUSIVE);
+                    SpannableString buf =  new SpannableString(prof[recom_prof[i]]);
+                    buf.setSpan(new RelativeSizeSpan(2f), 0, prof[recom_prof[i]].length(), Spanned.SPAN_EXCLUSIVE_INCLUSIVE);
                     professions.append(buf);
                     professions.append("\n\n");
-                    buf = new SpannableString(desc[recomProf[i] - 1]);
-                    buf.setSpan(new RelativeSizeSpan(0.5f), 0, desc[recomProf[i] - 1].length(), Spanned.SPAN_EXCLUSIVE_INCLUSIVE);
+                    buf = new SpannableString(desc[recom_prof[i]]);
+                    buf.setSpan(new RelativeSizeSpan(0.5f), 0, desc[recom_prof[i]].length(), Spanned.SPAN_EXCLUSIVE_INCLUSIVE);
                     professions.append(buf);
                     professions.append("\n\n\n");
+
                 }
+            }
+            for (int j=0; recom_prof.length>j;j++)
+            {
+                recom_prof[j]=-1;
             }
         }
     }
@@ -99,6 +117,17 @@ public class MainActivity extends AppCompatActivity {
     public void Button1Click(View v)
     {
         curQuestionNum *= 2;
+        if (leftButton!=-1) {
+            first:
+            {
+                for (int i=0; recom_prof.length>i;i++) {
+                    if (recom_prof[i] == -1) {
+                        recom_prof[i] = leftButton;
+                        break first;
+                    }
+                }
+            }
+        }
         ShowQuestionAndChoices(curQuestionNum);
     }
 
@@ -106,6 +135,17 @@ public class MainActivity extends AppCompatActivity {
     public void Button2Click(View v)
     {
         curQuestionNum = 2 * curQuestionNum + 1;
+        if (rightButton!=-1) {
+            second:
+            {
+                for (int i=0; recom_prof.length>i;i++) {
+                    if (recom_prof[i] == -1) {
+                        recom_prof[i] = rightButton;
+                        break second;
+                    }
+                }
+            }
+        }
         ShowQuestionAndChoices(curQuestionNum);
     }
 
@@ -116,46 +156,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
     }
 
-    // находит список рекомендуемых профессий по номеру последнего ответа
-    // return массив номеров профессий для вывода
-    private int[] RecomProf(int num)
-    {
-        int[] prof = new int[3];
-        for (int i = 0; i < prof.length; i++) {
-            prof[i] = 0;
-        }
-        switch (num) {
-            case 8:
-                prof[0] = 8;
-                prof[1] = 3;
-                prof[2] = 2;
-                break;
-            case 9:
-                prof[0] = 8;
-                prof[1] = 2;
-                break;
-            case 10:
-                prof[0] = 3;
-                prof[1] = 8;
-                break;
-            case 11:
-                prof[0] = 5;
-                break;
-            case 12:
-                prof[0] = 4;
-                prof[1] = 9;
-                break;
-            case 13:
-                prof[0] = 11;
-                break;
-            case 14:
-                prof[0] = 10;
-                break;
-            case 15:
-                prof[0] = 1;
-                prof[1] = 3;
-                break;
-        }
-        return prof;
-    }
+
 }
+
+
