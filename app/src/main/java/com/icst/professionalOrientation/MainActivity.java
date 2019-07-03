@@ -2,46 +2,51 @@ package com.icst.professionalOrientation;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.view.View;
 import android.widget.Button;
 import android.text.SpannableString;
 import android.text.style.RelativeSizeSpan;
 import android.text.Spanned;
+import android.view.WindowManager;
 
-import java.util.function.ToIntFunction;
-
-public class MainActivity extends AppCompatActivity {
-
+public class MainActivity extends AppCompatActivity
+{
     private TextView question; // поле с вопросом
     private Button button1; // первая кнопка (левая)
     private Button button2; // вторая кнопка (правая)
     private int curQuestionNum; // номер текущего вопроса
-
-    private  int[] recom_prof = new int[3]; // список рекомендуемых профессий
-    private int leftButton = -1; // та профессия которая добавится при нажатии левой кнопки
-    private int rightButton = -1; // та профессия которая добавится при нажатии правой кнопки
-
+    private int[] recom_prof; // список рекомендуемых профессий
+    private int leftButton; // номер профессии, которая добавится при нажатии левой кнопки
+    private int rightButton; // номер профессии, которая добавится при нажатии правой кнопки
+    private ProgressBar progress; // прогресс пройденных вопросов
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        for (int i=0; recom_prof.length>i;i++)
+        recom_prof = new int[3];
+        leftButton = -1;
+        rightButton = -1;
+        for (int i = 0; recom_prof.length > i; i++)
         {
-            recom_prof[i]=-1;
+            recom_prof[i] = -1;
         }
+        getSupportActionBar().hide();
+        getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
         setContentView(R.layout.activity_main);
     }
 
     // обработка события нажатия на кнопку "НАЧАТЬ ТЕСТ"
     public void ButtonStartClick(View v)
     {
-
         setContentView(R.layout.test);
         question = findViewById(R.id.question);
         button1 = findViewById(R.id.firstButton);
         button2 = findViewById(R.id.secondButton);
         curQuestionNum = 1;
+        progress = findViewById(R.id.progress);
+        progress.incrementProgressBy(1);
         ShowQuestionAndChoices(curQuestionNum);
     }
 
@@ -79,7 +84,9 @@ public class MainActivity extends AppCompatActivity {
         if (questionId != 0)
         {
             String[] questionWithAnswers = getResources().getStringArray(questionId);
-            question.setText(questionWithAnswers[0]);
+            SpannableString buf =  new SpannableString(questionWithAnswers[0]);
+            buf.setSpan(new RelativeSizeSpan(2f), 0, questionWithAnswers[0].length(), Spanned.SPAN_EXCLUSIVE_INCLUSIVE);
+            question.setText(buf);
             button1.setText(questionWithAnswers[1]);
             button2.setText(questionWithAnswers[2]);
             leftButton = Integer.parseInt(questionWithAnswers[3]);
@@ -91,7 +98,7 @@ public class MainActivity extends AppCompatActivity {
             TextView professions = findViewById(R.id.professions); // форма для вывода рекомендуемых IT профессий
             String[] prof = getResources().getStringArray(R.array.professions);
             String[] desc = getResources().getStringArray(R.array.descriptions);
-            for (int i=0; recom_prof.length>i;i++)
+            for (int i = 0; recom_prof.length > i; i++)
             {
                 if (recom_prof[i] != -1)
                 {
@@ -103,12 +110,11 @@ public class MainActivity extends AppCompatActivity {
                     buf.setSpan(new RelativeSizeSpan(0.5f), 0, desc[recom_prof[i]].length(), Spanned.SPAN_EXCLUSIVE_INCLUSIVE);
                     professions.append(buf);
                     professions.append("\n\n\n");
-
                 }
             }
-            for (int j=0; recom_prof.length>j;j++)
+            for (int j = 0; recom_prof.length > j; j++)
             {
-                recom_prof[j]=-1;
+                recom_prof[j] = -1;
             }
         }
     }
@@ -117,17 +123,21 @@ public class MainActivity extends AppCompatActivity {
     public void Button1Click(View v)
     {
         curQuestionNum *= 2;
-        if (leftButton!=-1) {
+        if (leftButton != -1)
+        {
             first:
             {
-                for (int i=0; recom_prof.length>i;i++) {
-                    if (recom_prof[i] == -1) {
+                for (int i = 0; recom_prof.length > i; i++)
+                {
+                    if (recom_prof[i] == -1)
+                    {
                         recom_prof[i] = leftButton;
                         break first;
                     }
                 }
             }
         }
+        progress.incrementProgressBy(1);
         ShowQuestionAndChoices(curQuestionNum);
     }
 
@@ -135,17 +145,21 @@ public class MainActivity extends AppCompatActivity {
     public void Button2Click(View v)
     {
         curQuestionNum = 2 * curQuestionNum + 1;
-        if (rightButton!=-1) {
+        if (rightButton != -1)
+        {
             second:
             {
-                for (int i=0; recom_prof.length>i;i++) {
-                    if (recom_prof[i] == -1) {
+                for (int i = 0; recom_prof.length > i; i++)
+                {
+                    if (recom_prof[i] == -1)
+                    {
                         recom_prof[i] = rightButton;
                         break second;
                     }
                 }
             }
         }
+        progress.incrementProgressBy(1);
         ShowQuestionAndChoices(curQuestionNum);
     }
 
@@ -155,8 +169,4 @@ public class MainActivity extends AppCompatActivity {
         curQuestionNum = 1;
         setContentView(R.layout.activity_main);
     }
-
-
 }
-
-
