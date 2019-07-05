@@ -14,7 +14,6 @@ import android.text.Spanned;
 import android.view.WindowManager;
 import java.util.ArrayList;
 import java.util.List;
-import com.robertlevonyan.views.expandable.Expandable;
 
 public class MainActivity extends AppCompatActivity
 {
@@ -26,10 +25,6 @@ public class MainActivity extends AppCompatActivity
     private int leftButton; // номер профессии, которая добавится при нажатии левой кнопки
     private int rightButton; // номер профессии, которая добавится при нажатии правой кнопки
     private ProgressBar progress; // прогресс пройденных вопросов
-    private Expandable expandable; // выезжающая панель
-    private RecyclerView recyclerView;
-    private ProfAdapter mAdapter;
-    private RecyclerView.LayoutManager layoutManager;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -63,8 +58,8 @@ public class MainActivity extends AppCompatActivity
     public void ButtonProfessionsClick(View v)
     {
         setContentView(R.layout.all_professions);
-        recyclerView = findViewById(R.id.oneProf);
-        layoutManager = new LinearLayoutManager(this);
+        RecyclerView recyclerView = findViewById(R.id.oneProf);
+        RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(this);
         recyclerView.setLayoutManager(layoutManager);
         String[] prof = getResources().getStringArray(R.array.professions);
         String[] desc = getResources().getStringArray(R.array.briefDescriptions);
@@ -83,11 +78,11 @@ public class MainActivity extends AppCompatActivity
             buf[2].setSpan(new RelativeSizeSpan(1f), 0, competence[i].length(), Spanned.SPAN_EXCLUSIVE_INCLUSIVE);
             buf[3] =  new SpannableString(salary[i]);
             buf[3].setSpan(new RelativeSizeSpan(1f), 0, salary[i].length(), Spanned.SPAN_EXCLUSIVE_INCLUSIVE);
-            buf[4] =  new SpannableString(links[i] + "\n\n\n");
+            buf[4] =  new SpannableString(links[i]);
             buf[4].setSpan(new RelativeSizeSpan(1f), 0, links[i].length(), Spanned.SPAN_EXCLUSIVE_INCLUSIVE);
             professions.add(new Profession(buf[0], buf[1], buf[2], buf[3], buf[4]));
         }
-        mAdapter = new ProfAdapter(this, professions);
+        ProfAdapter mAdapter = new ProfAdapter(this, professions);
         recyclerView.setAdapter(mAdapter);
     }
 
@@ -116,23 +111,35 @@ public class MainActivity extends AppCompatActivity
         else
         {
             setContentView(R.layout.results);
-            TextView professions = findViewById(R.id.professions); // форма для вывода рекомендуемых IT профессий
+            RecyclerView recyclerView = findViewById(R.id.oneProf);
+            RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(this);
+            recyclerView.setLayoutManager(layoutManager);
             String[] prof = getResources().getStringArray(R.array.professions);
             String[] desc = getResources().getStringArray(R.array.briefDescriptions);
+            String[] competence = getResources().getStringArray(R.array.competence);
+            String[] salary = getResources().getStringArray(R.array.salary);
+            String[] links = getResources().getStringArray(R.array.links);
+            List<Profession> professions = new ArrayList<>();
             for (int i = 0; recom_prof.length > i; i++)
             {
                 if (recom_prof[i] != -1)
                 {
-                    SpannableString buf =  new SpannableString(prof[recom_prof[i]]);
-                    buf.setSpan(new RelativeSizeSpan(2f), 0, prof[recom_prof[i]].length(), Spanned.SPAN_EXCLUSIVE_INCLUSIVE);
-                    professions.append(buf);
-                    professions.append("\n\n");
-                    buf = new SpannableString(desc[recom_prof[i]]);
-                    buf.setSpan(new RelativeSizeSpan(0.5f), 0, desc[recom_prof[i]].length(), Spanned.SPAN_EXCLUSIVE_INCLUSIVE);
-                    professions.append(buf);
-                    professions.append("\n\n\n");
+                    SpannableString[] buf = new SpannableString[5];
+                    buf[0] =  new SpannableString(prof[recom_prof[i]] + "\n\n");
+                    buf[0].setSpan(new RelativeSizeSpan(2f), 0, prof[recom_prof[i]].length(), Spanned.SPAN_EXCLUSIVE_INCLUSIVE);
+                    buf[1] = new SpannableString(desc[recom_prof[i]]);
+                    buf[1].setSpan(new RelativeSizeSpan(1f), 0, desc[recom_prof[i]].length(), Spanned.SPAN_EXCLUSIVE_INCLUSIVE);
+                    buf[2] = new SpannableString(competence[recom_prof[i]]);
+                    buf[2].setSpan(new RelativeSizeSpan(1f), 0, competence[recom_prof[i]].length(), Spanned.SPAN_EXCLUSIVE_INCLUSIVE);
+                    buf[3] =  new SpannableString(salary[recom_prof[i]]);
+                    buf[3].setSpan(new RelativeSizeSpan(1f), 0, salary[recom_prof[i]].length(), Spanned.SPAN_EXCLUSIVE_INCLUSIVE);
+                    buf[4] =  new SpannableString(links[recom_prof[i]]);
+                    buf[4].setSpan(new RelativeSizeSpan(1f), 0, links[recom_prof[i]].length(), Spanned.SPAN_EXCLUSIVE_INCLUSIVE);
+                    professions.add(new Profession(buf[0], buf[1], buf[2], buf[3], buf[4]));
                 }
             }
+            ProfAdapter mAdapter = new ProfAdapter(this, professions);
+            recyclerView.setAdapter(mAdapter);
             for (int j = 0; recom_prof.length > j; j++)
             {
                 recom_prof[j] = -1;

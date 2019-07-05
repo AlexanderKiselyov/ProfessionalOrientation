@@ -1,31 +1,39 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView
+<LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical">
-    <LinearLayout
+
+    <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical">
-        <TextView
+        android:text="Подходящие тебе\nспециальности и направления\nИнститута Компьютерных\nНаук и Технологий"
+        android:textSize="20sp"
+        android:textAlignment="center"
+        android:layout_margin="5dp"
+        android:layout_weight="1" />
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:layout_weight="200"
+        android:scrollbarAlwaysDrawVerticalTrack="true">
+
+        <android.support.v7.widget.RecyclerView
+            android:id="@id/oneProf"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Подходящие тебе\nспециальности и направления\nИнститута Компьютерных\nНаук и Технологий"
-            android:textSize="30sp"
-            android:textAlignment="center"
-            android:layout_margin="5dp" />
-        <TextView
-            android:id="@+id/professions"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_margin="10dp" />
-        <Button
-            android:id="@+id/menu"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:onClick="ButtonMenuClick"
-            android:text="Меню"
-            android:layout_margin="10dp" />
-    </LinearLayout>
-</ScrollView>
+            android:orientation="vertical" />
+
+    </ScrollView>
+    <Button
+        android:id="@+id/menu"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:onClick="ButtonMenuClick"
+        android:text="Меню"
+        android:layout_margin="10dp"
+        android:layout_weight="1"/>
+
+</LinearLayout>
