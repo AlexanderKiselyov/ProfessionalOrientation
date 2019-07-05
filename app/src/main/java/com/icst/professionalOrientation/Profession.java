@@ -6,18 +6,18 @@ public class Profession
 {
     private SpannableString name;
     private SpannableString briefDescription;
-    private SpannableString competence;
-    private SpannableString salary;
-    private SpannableString links;
+    private SpannableString profFirst;
+    private SpannableString profSecond;
+    private SpannableString profThird;
 
 
-    public Profession(SpannableString name, SpannableString briefDescription, SpannableString competence, SpannableString salary, SpannableString links)
+    public Profession(SpannableString name, SpannableString briefDescription, SpannableString profFirst , SpannableString profSecond, SpannableString profThird)
     {
         this.name=name;
         this.briefDescription = briefDescription;
-        this.competence = competence;
-        this.salary = salary;
-        this.links = links;
+        this.profFirst = profFirst ;
+        this.profSecond = profSecond;
+        this.profThird = profThird;
     }
 
     public SpannableString getName()
@@ -40,33 +40,33 @@ public class Profession
         this.briefDescription = description;
     }
 
-    public SpannableString getCompetence()
+    public SpannableString getProfFirst()
     {
-        return this.competence;
+        return this.profFirst;
     }
 
-    public void setCompetence(SpannableString competence)
+    public void setProfFirst(SpannableString profFirst)
     {
-        this.competence = competence;
+        this.profFirst = profFirst;
     }
 
-    public SpannableString getSalary()
+    public SpannableString getProfSecond()
     {
-        return this.salary;
+        return this.profSecond;
     }
 
-    public void setSalary(SpannableString salary)
+    public void setProfSecond(SpannableString profSecond)
     {
-        this.salary = salary;
+        this.profSecond = profSecond;
     }
 
-    public SpannableString getLinks()
+    public SpannableString getProfThird()
     {
-        return this.links;
+        return this.profThird;
     }
 
-    public void setLinks(SpannableString links)
+    public void setProfThird(SpannableString profThird)
     {
-        this.links = links;
+        this.profThird = profThird;
     }
 }

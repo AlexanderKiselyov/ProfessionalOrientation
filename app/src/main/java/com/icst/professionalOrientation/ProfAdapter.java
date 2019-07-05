@@ -23,17 +23,17 @@ public class ProfAdapter extends RecyclerView.Adapter<ProfAdapter.ViewHolder> {
     {
         final TextView name;
         final TextView description;
-        final TextView competence;
-        final TextView salary;
-        final TextView links;
+        final TextView profFirst;
+        final TextView profSecond;
+        final TextView profThird;
         public ViewHolder(View v)
         {
             super(v);
             name = v.findViewById(R.id.oneProfName);
             description = v.findViewById(R.id.oneProfBriefDesc);
-            competence = v.findViewById(R.id.content_competence);
-            salary = v.findViewById(R.id.content_salary);
-            links = v.findViewById(R.id.content_links);
+            profFirst = v.findViewById(R.id.content_competence);
+            profSecond = v.findViewById(R.id.content_salary);
+            profThird = v.findViewById(R.id.content_links);
         }
     }
 
@@ -50,9 +50,9 @@ public class ProfAdapter extends RecyclerView.Adapter<ProfAdapter.ViewHolder> {
         Profession prof = mDataset.get(position);
         holder.name.setText(prof.getName());
         holder.description.setText(prof.getDescription());
-        holder.competence.setText(prof.getCompetence());
-        holder.salary.setText(prof.getSalary());
-        holder.links.setText(prof.getLinks());
+        holder.profFirst.setText(prof.getProfFirst());
+        holder.profSecond.setText(prof.getProfSecond());
+        holder.profThird.setText(prof.getProfThird());
     }
 
     @Override

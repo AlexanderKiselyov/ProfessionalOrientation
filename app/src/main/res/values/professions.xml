@@ -16,6 +16,10 @@
         <item>Архитектор программного обеспечения</item>
     </string-array>
 
+    <string name="profFirst">Компетенции</string>
+    <string name="profSecond">Зарплата по Санкт-Петербургу</string>
+    <string name="profThird">Ссылки</string>
+
     <string-array name="briefDescriptions">
         <item>Разработчик мобильных приложений (mobile-разработчик, мобильный разработчик) - это программист, который создает приложения (программы) для телефонов, планшетов и других мобильных устройств. Чем занимается разработчик мобильных приложений:\n
         * создает техническое задание на разработку нового приложения\n
@@ -49,7 +53,7 @@
         <item>13</item>
     </string-array>
 
-    <string-array name="competence">
+    <string-array name="profFirst">
         <item>* творчество\n
               * внимательность\n
               * системное мышление\n
@@ -75,7 +79,7 @@
         <item>13</item>
     </string-array>
     
-    <string-array name="salary">
+    <string-array name="profSecond">
         <item>60 – 250 тысяч рублей</item>
         <item>2</item>
         <item>3</item>
@@ -91,7 +95,7 @@
         <item>13</item>
     </string-array>
     
-    <string-array name="links">
+    <string-array name="profThird">
         <item>1</item>
         <item>2</item>
         <item>3</item>
