@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:padding="16dp">
+
+    <TextView
+        android:id="@+id/oneProfName"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+    </TextView>
+    <TextView
+        android:id="@+id/oneProfBriefDesc"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+    </TextView>
+    <com.robertlevonyan.views.expandable.Expandable
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <include
+            layout="@layout/header_competence" />
+        <include
+            layout="@layout/content_competence" />
+    </com.robertlevonyan.views.expandable.Expandable>
+    <com.robertlevonyan.views.expandable.Expandable
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <include
+            layout="@layout/header_salary" />
+        <include
+            layout="@layout/content_salary" />
+    </com.robertlevonyan.views.expandable.Expandable>
+    <com.robertlevonyan.views.expandable.Expandable
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <include
+            layout="@layout/header_links" />
+        <include
+            layout="@layout/content_links" />
+    </com.robertlevonyan.views.expandable.Expandable>
+
+</LinearLayout>

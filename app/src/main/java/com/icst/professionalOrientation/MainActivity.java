@@ -1,6 +1,8 @@
 package com.icst.professionalOrientation;
 
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.RecyclerView;
+import android.support.v7.widget.LinearLayoutManager;
 import android.os.Bundle;
 import android.widget.ProgressBar;
 import android.widget.TextView;
@@ -10,6 +12,9 @@ import android.text.SpannableString;
 import android.text.style.RelativeSizeSpan;
 import android.text.Spanned;
 import android.view.WindowManager;
+import java.util.ArrayList;
+import java.util.List;
+import com.robertlevonyan.views.expandable.Expandable;
 
 public class MainActivity extends AppCompatActivity
 {
@@ -21,6 +26,10 @@ public class MainActivity extends AppCompatActivity
     private int leftButton; // номер профессии, которая добавится при нажатии левой кнопки
     private int rightButton; // номер профессии, которая добавится при нажатии правой кнопки
     private ProgressBar progress; // прогресс пройденных вопросов
+    private Expandable expandable; // выезжающая панель
+    private RecyclerView recyclerView;
+    private ProfAdapter mAdapter;
+    private RecyclerView.LayoutManager layoutManager;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -54,20 +63,32 @@ public class MainActivity extends AppCompatActivity
     public void ButtonProfessionsClick(View v)
     {
         setContentView(R.layout.all_professions);
-        TextView allProfessions = findViewById(R.id.all_professions); // форма для вывода всех IT профессий
+        recyclerView = findViewById(R.id.oneProf);
+        layoutManager = new LinearLayoutManager(this);
+        recyclerView.setLayoutManager(layoutManager);
         String[] prof = getResources().getStringArray(R.array.professions);
-        String[] desc = getResources().getStringArray(R.array.descriptions);
+        String[] desc = getResources().getStringArray(R.array.briefDescriptions);
+        String[] competence = getResources().getStringArray(R.array.competence);
+        String[] salary = getResources().getStringArray(R.array.salary);
+        String[] links = getResources().getStringArray(R.array.links);
+        List<Profession> professions = new ArrayList<>();
         for (int i = 0; i < prof.length; i++)
         {
-            SpannableString buf =  new SpannableString(prof[i]);
-            buf.setSpan(new RelativeSizeSpan(2f), 0, prof[i].length(), Spanned.SPAN_EXCLUSIVE_INCLUSIVE);
-            allProfessions.append(buf);
-            allProfessions.append("\n\n");
-            buf = new SpannableString(desc[i]);
-            buf.setSpan(new RelativeSizeSpan(0.5f), 0, desc[i].length(), Spanned.SPAN_EXCLUSIVE_INCLUSIVE);
-            allProfessions.append(buf);
-            allProfessions.append("\n\n\n");
+            SpannableString[] buf = new SpannableString[5];
+            buf[0] =  new SpannableString(prof[i] + "\n\n");
+            buf[0].setSpan(new RelativeSizeSpan(2f), 0, prof[i].length(), Spanned.SPAN_EXCLUSIVE_INCLUSIVE);
+            buf[1] = new SpannableString(desc[i]);
+            buf[1].setSpan(new RelativeSizeSpan(1f), 0, desc[i].length(), Spanned.SPAN_EXCLUSIVE_INCLUSIVE);
+            buf[2] = new SpannableString(competence[i]);
+            buf[2].setSpan(new RelativeSizeSpan(1f), 0, competence[i].length(), Spanned.SPAN_EXCLUSIVE_INCLUSIVE);
+            buf[3] =  new SpannableString(salary[i]);
+            buf[3].setSpan(new RelativeSizeSpan(1f), 0, salary[i].length(), Spanned.SPAN_EXCLUSIVE_INCLUSIVE);
+            buf[4] =  new SpannableString(links[i] + "\n\n\n");
+            buf[4].setSpan(new RelativeSizeSpan(1f), 0, links[i].length(), Spanned.SPAN_EXCLUSIVE_INCLUSIVE);
+            professions.add(new Profession(buf[0], buf[1], buf[2], buf[3], buf[4]));
         }
+        mAdapter = new ProfAdapter(this, professions);
+        recyclerView.setAdapter(mAdapter);
     }
 
     // обработка события нажатия на кнопку "ИНФОРМАЦИЯ"
@@ -97,7 +118,7 @@ public class MainActivity extends AppCompatActivity
             setContentView(R.layout.results);
             TextView professions = findViewById(R.id.professions); // форма для вывода рекомендуемых IT профессий
             String[] prof = getResources().getStringArray(R.array.professions);
-            String[] desc = getResources().getStringArray(R.array.descriptions);
+            String[] desc = getResources().getStringArray(R.array.briefDescriptions);
             for (int i = 0; recom_prof.length > i; i++)
             {
                 if (recom_prof[i] != -1)
