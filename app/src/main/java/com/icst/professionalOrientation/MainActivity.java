@@ -14,6 +14,9 @@ import android.text.Spanned;
 import android.view.WindowManager;
 import java.util.ArrayList;
 import java.util.List;
+import android.widget.ImageView;
+import java.util.Random;
+import android.content.pm.ActivityInfo;
 
 public class MainActivity extends AppCompatActivity
 {
@@ -25,16 +28,20 @@ public class MainActivity extends AppCompatActivity
     private int leftButton; // номер профессии, которая добавится при нажатии левой кнопки
     private int rightButton; // номер профессии, которая добавится при нажатии правой кнопки
     private ProgressBar progress; // прогресс пройденных вопросов
+    private int lastRobot; // последний выведенный на экран робот во время теста
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    protected void onCreate(Bundle savedInstanceState)
+    {
         super.onCreate(savedInstanceState);
+        setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE);
+        getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
         recom_prof = new int[3];
         leftButton = -1;
         rightButton = -1;
         RefreshRecomProf();
+        lastRobot = 0;
         getSupportActionBar().hide();
-        getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
         setContentView(R.layout.activity_main);
     }
 
@@ -71,13 +78,14 @@ public class MainActivity extends AppCompatActivity
         if (questionId != 0)
         {
             String[] questionWithAnswers = getResources().getStringArray(questionId);
-            SpannableString buf =  new SpannableString(questionWithAnswers[0]);
-            buf.setSpan(new RelativeSizeSpan(2f), 0, questionWithAnswers[0].length(), Spanned.SPAN_EXCLUSIVE_INCLUSIVE);
-            question.setText(buf);
+            //SpannableString buf =  new SpannableString(questionWithAnswers[0]);
+            //buf.setSpan(new RelativeSizeSpan(2f), 0, questionWithAnswers[0].length(), Spanned.SPAN_EXCLUSIVE_INCLUSIVE);
+            question.setText(questionWithAnswers[0]);
             button1.setText(questionWithAnswers[1]);
             button2.setText(questionWithAnswers[2]);
             leftButton = Integer.parseInt(questionWithAnswers[3]);
             rightButton = Integer.parseInt(questionWithAnswers[4]);
+            ShowRobot();
         }
         else
         {
@@ -112,9 +120,9 @@ public class MainActivity extends AppCompatActivity
         setContentView(R.layout.activity_main);
     }
 
-    //Фукнция которая выводит на экран професии, если recomendProf - фолсе, то выводит все профессии
-    //если тру, то только те которые есть в массиве recom_prof
-    public void ConclusionProfessions(boolean recomendProf){
+    // выводит на экран профессии (те, которые есть в массиве рекомендуемых профессий recom_prof, если recomendProf = true, иначе - все профессии)
+    private void ConclusionProfessions(boolean recomendProf)
+    {
         if (recomendProf)
         {
             setContentView(R.layout.results);
@@ -171,14 +179,12 @@ public class MainActivity extends AppCompatActivity
                 professions.add(new Profession(buf[0], buf[1], buf[2], buf[3], buf[4]));
             }
         }
-
         ProfAdapter mAdapter = new ProfAdapter(this, professions);
         recyclerView.setAdapter(mAdapter);
-        return;
     }
 
-    //Ввод в список рекомендованных профессий от нажатия кнопки
-    public void InputRecomenProf(int Button)
+    // ввод в список рекомендованных профессий от нажатия кнопки
+    private void InputRecomenProf(int Button)
     {
         if (Button != -1)
         {
@@ -191,16 +197,28 @@ public class MainActivity extends AppCompatActivity
                 }
             }
         }
-        return;
     }
 
-    // очищение(ВО ИМЯ СВЕТА!!!) списка рекомендуемых профессий
-    public void RefreshRecomProf(){{
+    // очищение списка рекомендуемых профессий
+    private void RefreshRecomProf()
+    {
         for (int i = 0; recom_prof.length > i; i++)
         {
             recom_prof[i] = -1;
         }
     }
+
+    // вывод картинки робота во время теста
+    private void ShowRobot()
+    {
+        ImageView robot = findViewById(R.id.robot);
+        Random random = new Random();
+        int robotNum = random.nextInt(9) + 1;
+        while (robotNum == lastRobot)
+        {
+            robotNum = random.nextInt(9) + 1;
+        }
+        robot.setBackgroundResource(getResources().getIdentifier("robot" + robotNum,"drawable", getPackageName()));
+        lastRobot = robotNum;
     }
 }
-
