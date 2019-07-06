@@ -32,10 +32,7 @@ public class MainActivity extends AppCompatActivity
         recom_prof = new int[3];
         leftButton = -1;
         rightButton = -1;
-        for (int i = 0; recom_prof.length > i; i++)
-        {
-            recom_prof[i] = -1;
-        }
+        RefreshRecomProf();
         getSupportActionBar().hide();
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
         setContentView(R.layout.activity_main);
@@ -57,33 +54,7 @@ public class MainActivity extends AppCompatActivity
     // обработка события нажатия на кнопку "ПРОФЕССИИ"
     public void ButtonProfessionsClick(View v)
     {
-        setContentView(R.layout.all_professions);
-        RecyclerView recyclerView = findViewById(R.id.oneProf);
-        RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(this);
-        recyclerView.setLayoutManager(layoutManager);
-        String[] prof = getResources().getStringArray(R.array.professions);
-        String[] desc = getResources().getStringArray(R.array.briefDescriptions);
-        String[] profFirst = getResources().getStringArray(R.array.profFirst);
-        String[] profSecond = getResources().getStringArray(R.array.profSecond);
-        String[] profThird = getResources().getStringArray(R.array.profThird);
-        List<Profession> professions = new ArrayList<>();
-        for (int i = 0; i < prof.length; i++)
-        {
-            SpannableString[] buf = new SpannableString[5];
-            buf[0] =  new SpannableString(prof[i] + "\n\n");
-            buf[0].setSpan(new RelativeSizeSpan(2f), 0, prof[i].length(), Spanned.SPAN_EXCLUSIVE_INCLUSIVE);
-            buf[1] = new SpannableString(desc[i]);
-            buf[1].setSpan(new RelativeSizeSpan(1f), 0, desc[i].length(), Spanned.SPAN_EXCLUSIVE_INCLUSIVE);
-            buf[2] = new SpannableString(profFirst[i]);
-            buf[2].setSpan(new RelativeSizeSpan(1f), 0, profFirst[i].length(), Spanned.SPAN_EXCLUSIVE_INCLUSIVE);
-            buf[3] =  new SpannableString(profSecond[i]);
-            buf[3].setSpan(new RelativeSizeSpan(1f), 0, profSecond[i].length(), Spanned.SPAN_EXCLUSIVE_INCLUSIVE);
-            buf[4] =  new SpannableString(profThird[i]);
-            buf[4].setSpan(new RelativeSizeSpan(1f), 0, profThird[i].length(), Spanned.SPAN_EXCLUSIVE_INCLUSIVE);
-            professions.add(new Profession(buf[0], buf[1], buf[2], buf[3], buf[4]));
-        }
-        ProfAdapter mAdapter = new ProfAdapter(this, professions);
-        recyclerView.setAdapter(mAdapter);
+        ConclusionProfessions(false);
     }
 
     // обработка события нажатия на кнопку "ИНФОРМАЦИЯ"
@@ -110,16 +81,59 @@ public class MainActivity extends AppCompatActivity
         }
         else
         {
+            ConclusionProfessions(true);
+            RefreshRecomProf();
+        }
+    }
+
+    // обработка события нажатия на кнопку ответа 1
+    public void Button1Click(View v)
+    {
+        curQuestionNum *= 2;
+        InputRecomenProf(leftButton);
+        progress.incrementProgressBy(1);
+        ShowQuestionAndChoices(curQuestionNum);
+    }
+
+    // обработка события нажатия на кнопку ответа 2
+    public void Button2Click(View v)
+    {
+        curQuestionNum = 2 * curQuestionNum + 1;
+        InputRecomenProf(rightButton);
+        progress.incrementProgressBy(1);
+        ShowQuestionAndChoices(curQuestionNum);
+    }
+
+    // обработка события нажатия на кнопку "МЕНЮ"
+    public void ButtonMenuClick(View v)
+    {
+        RefreshRecomProf();
+        curQuestionNum = 1;
+        setContentView(R.layout.activity_main);
+    }
+
+    //Фукнция которая выводит на экран професии, если recomendProf - фолсе, то выводит все профессии
+    //если тру, то только те которые есть в массиве recom_prof
+    public void ConclusionProfessions(boolean recomendProf){
+        if (recomendProf)
+        {
             setContentView(R.layout.results);
-            RecyclerView recyclerView = findViewById(R.id.oneProf);
-            RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(this);
-            recyclerView.setLayoutManager(layoutManager);
-            String[] prof = getResources().getStringArray(R.array.professions);
-            String[] desc = getResources().getStringArray(R.array.briefDescriptions);
-            String[] profFirst = getResources().getStringArray(R.array.profFirst);
-            String[] profSecond = getResources().getStringArray(R.array.profSecond);
-            String[] profThird = getResources().getStringArray(R.array.profThird);
-            List<Profession> professions = new ArrayList<>();
+        }
+        else
+        {
+            setContentView(R.layout.all_professions);
+        }
+        RecyclerView recyclerView = findViewById(R.id.oneProf);
+        RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(this);
+        recyclerView.setLayoutManager(layoutManager);
+        String[] prof = getResources().getStringArray(R.array.professions);
+        String[] desc = getResources().getStringArray(R.array.briefDescriptions);
+        String[] profFirst = getResources().getStringArray(R.array.profFirst);
+        String[] profSecond = getResources().getStringArray(R.array.profSecond);
+        String[] profThird = getResources().getStringArray(R.array.profThird);
+        List<Profession> professions = new ArrayList<>();
+        if (recomendProf)
+        {
             for (int i = 0; recom_prof.length > i; i++)
             {
                 if (recom_prof[i] != -1)
@@ -138,63 +152,55 @@ public class MainActivity extends AppCompatActivity
                     professions.add(new Profession(buf[0], buf[1], buf[2], buf[3], buf[4]));
                 }
             }
-            ProfAdapter mAdapter = new ProfAdapter(this, professions);
-            recyclerView.setAdapter(mAdapter);
-            for (int j = 0; recom_prof.length > j; j++)
+        }
+        else
+        {
+            for (int i = 0; i < prof.length; i++)
             {
-                recom_prof[j] = -1;
+                SpannableString[] buf = new SpannableString[5];
+                buf[0] =  new SpannableString(prof[i] + "\n\n");
+                buf[0].setSpan(new RelativeSizeSpan(2f), 0, prof[i].length(), Spanned.SPAN_EXCLUSIVE_INCLUSIVE);
+                buf[1] = new SpannableString(desc[i]);
+                buf[1].setSpan(new RelativeSizeSpan(1f), 0, desc[i].length(), Spanned.SPAN_EXCLUSIVE_INCLUSIVE);
+                buf[2] = new SpannableString(profFirst[i]);
+                buf[2].setSpan(new RelativeSizeSpan(1f), 0, profFirst[i].length(), Spanned.SPAN_EXCLUSIVE_INCLUSIVE);
+                buf[3] =  new SpannableString(profSecond[i]);
+                buf[3].setSpan(new RelativeSizeSpan(1f), 0, profSecond[i].length(), Spanned.SPAN_EXCLUSIVE_INCLUSIVE);
+                buf[4] =  new SpannableString(profThird[i]);
+                buf[4].setSpan(new RelativeSizeSpan(1f), 0, profThird[i].length(), Spanned.SPAN_EXCLUSIVE_INCLUSIVE);
+                professions.add(new Profession(buf[0], buf[1], buf[2], buf[3], buf[4]));
             }
         }
+
+        ProfAdapter mAdapter = new ProfAdapter(this, professions);
+        recyclerView.setAdapter(mAdapter);
+        return;
     }
 
-    // обработка события нажатия на кнопку ответа 1
-    public void Button1Click(View v)
+    //Ввод в список рекомендованных профессий от нажатия кнопки
+    public void InputRecomenProf(int Button)
     {
-        curQuestionNum *= 2;
-        if (leftButton != -1)
+        if (Button != -1)
         {
-            first:
+            for (int i = 0; recom_prof.length > i; i++)
             {
-                for (int i = 0; recom_prof.length > i; i++)
+                if (recom_prof[i] == -1)
                 {
-                    if (recom_prof[i] == -1)
-                    {
-                        recom_prof[i] = leftButton;
-                        break first;
-                    }
+                    recom_prof[i] = Button;
+                    return;
                 }
             }
         }
-        progress.incrementProgressBy(1);
-        ShowQuestionAndChoices(curQuestionNum);
+        return;
     }
 
-    // обработка события нажатия на кнопку ответа 2
-    public void Button2Click(View v)
-    {
-        curQuestionNum = 2 * curQuestionNum + 1;
-        if (rightButton != -1)
+    // очищение(ВО ИМЯ СВЕТА!!!) списка рекомендуемых профессий
+    public void RefreshRecomProf(){{
+        for (int i = 0; recom_prof.length > i; i++)
         {
-            second:
-            {
-                for (int i = 0; recom_prof.length > i; i++)
-                {
-                    if (recom_prof[i] == -1)
-                    {
-                        recom_prof[i] = rightButton;
-                        break second;
-                    }
-                }
-            }
+            recom_prof[i] = -1;
         }
-        progress.incrementProgressBy(1);
-        ShowQuestionAndChoices(curQuestionNum);
     }
-
-    // обработка события нажатия на кнопку "МЕНЮ"
-    public void ButtonMenuClick(View v)
-    {
-        curQuestionNum = 1;
-        setContentView(R.layout.activity_main);
     }
 }
+
