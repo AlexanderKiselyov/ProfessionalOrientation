@@ -7,11 +7,13 @@
     android:background="#FFFFFF">
 
     <LinearLayout
+        android:id="@+id/upperBar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
         android:layout_weight="1">
         <Button
+            android:id="@+id/back"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_margin="10dp"
@@ -31,12 +33,12 @@
             android:progress="0" />
     </LinearLayout>
     <LinearLayout
+        android:id="@+id/robotAndAnswers"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
         android:layout_margin="10dp"
         android:layout_weight="50">
-
         <ImageView
             android:id="@+id/robot"
             android:layout_width="match_parent"
@@ -51,28 +53,29 @@
             android:layout_weight="1" />
     </LinearLayout>
     <LinearLayout
+        android:id="@+id/answers"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_weight="2"
         android:orientation="horizontal"
         android:layout_margin="10dp">
-
         <Button
             android:id="@+id/firstButton"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
             android:layout_gravity="center|bottom"
             android:layout_margin="5dp"
+            android:autoSizeTextType="uniform"
             android:layout_weight="1"
             android:onClick="Button1Click"
             android:textSize="15sp" />
-
         <Button
             android:id="@+id/secondButton"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
             android:layout_gravity="center|bottom"
             android:layout_margin="5dp"
+            android:autoSizeTextType="uniform"
             android:layout_weight="1"
             android:onClick="Button2Click"
             android:textSize="15sp" />

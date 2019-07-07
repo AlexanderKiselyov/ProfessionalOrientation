@@ -7,17 +7,19 @@
     android:background="#FFFFFF">
 
     <LinearLayout
+        android:id="@+id/upperBar"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="match_parent"
         android:orientation="horizontal"
-        android:layout_weight="1">
+        android:layout_weight="20">
         <Button
+            android:id="@+id/back"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_margin="10dp"
             android:onClick="ButtonMenuClick"
             android:background="@drawable/back_button"
-            android:layout_weight="9"/>
+            android:layout_weight="5"/>
         <ProgressBar
             android:id="@+id/progress"
             style="?android:attr/progressBarStyleHorizontal"
@@ -30,56 +32,51 @@
             android:max="3"
             android:progress="0" />
     </LinearLayout>
-        <TextView
-            android:id="@+id/question"
-            android:layout_width = "match_parent"
-            android:layout_height = "300dp"
-            android:background="@drawable/message2"
-            android:autoSizeTextType="uniform"
-            android:layout_weight="1"/>
+    <TextView
+        android:id="@+id/question"
+        android:layout_width = "match_parent"
+        android:layout_height = "match_parent"
+        android:background="@drawable/message2"
+        android:autoSizeTextType="uniform"
+        android:layout_margin="10dp"
+        android:layout_weight="11"/>
     <LinearLayout
+        android:id="@+id/robotAndAnswers"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_weight="10"
+        android:layout_height="match_parent"
+        android:layout_weight="13"
         android:orientation="horizontal"
         android:layout_margin="10dp">
-
         <ImageView
             android:id="@+id/robot"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="match_parent"
             android:layout_weight="3" />
-
         <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_weight="3"
-        android:orientation="vertical"
-        android:layout_margin="10dp">
-
-
-
+            android:id="@+id/answers"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="3"
+            android:orientation="vertical">
             <Button
-            android:id="@+id/firstButton"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center|bottom"
-            android:layout_margin="5dp"
-            android:layout_weight="1"
-            android:onClick="Button1Click"
-            android:textSize="15sp" />
-
+                android:id="@+id/firstButton"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_gravity="center"
+                android:layout_margin="5dp"
+                android:layout_weight="1"
+                android:onClick="Button1Click"
+                android:textSize="15sp" />
             <Button
-            android:id="@+id/secondButton"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center|bottom"
-            android:layout_margin="5dp"
-            android:layout_weight="1"
-            android:onClick="Button2Click"
-            android:textSize="15sp" />
+                android:id="@+id/secondButton"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_gravity="center"
+                android:layout_margin="5dp"
+                android:layout_weight="1"
+                android:onClick="Button2Click"
+                android:textSize="15sp" />
         </LinearLayout>
-
     </LinearLayout>
 
 </LinearLayout>

@@ -23,29 +23,26 @@
         <Button
             android:id="@+id/start"
             android:layout_width="match_parent"
-            android:layout_height="100dp"
-            android:textSize="30sp"
+            android:layout_height="wrap_content"
             android:layout_centerInParent="true"
             android:layout_above="@+id/prof"
-            android:layout_marginBottom="20dp"
+            android:layout_marginBottom="10dp"
             android:onClick="ButtonStartClick"
             android:text="Начать тест" />
         <Button
             android:id="@+id/prof"
             android:layout_width="match_parent"
-            android:layout_height="100dp"
-            android:textSize="30sp"
+            android:layout_height="wrap_content"
             android:layout_centerInParent="true"
             android:onClick="ButtonProfessionsClick"
             android:text="Профессии" />
         <Button
             android:id="@+id/about"
             android:layout_width="match_parent"
-            android:layout_height="100dp"
-            android:textSize="30sp"
+            android:layout_height="wrap_content"
             android:layout_below="@+id/prof"
             android:layout_centerInParent="true"
-            android:layout_marginTop="20dp"
+            android:layout_marginTop="10dp"
             android:onClick="ButtonAboutClick"
             android:text="Информация" />
     </RelativeLayout>

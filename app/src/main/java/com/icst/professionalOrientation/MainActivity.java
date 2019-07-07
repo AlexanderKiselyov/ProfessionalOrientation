@@ -16,7 +16,7 @@ import java.util.ArrayList;
 import java.util.List;
 import android.widget.ImageView;
 import java.util.Random;
-import android.content.pm.ActivityInfo;
+import android.content.res.Configuration;
 
 public class MainActivity extends AppCompatActivity
 {
@@ -29,18 +29,21 @@ public class MainActivity extends AppCompatActivity
     private int rightButton; // номер профессии, которая добавится при нажатии правой кнопки
     private ProgressBar progress; // прогресс пройденных вопросов
     private int lastRobot; // последний выведенный на экран робот во время теста
+    private boolean ifTestBegin; // проверка на то, что тест запущен и идет
+    private boolean ifMainScreen; // проверка на то, что пользователь находится на стартовом экране
 
     @Override
     protected void onCreate(Bundle savedInstanceState)
     {
         super.onCreate(savedInstanceState);
-        //setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE);
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
         recom_prof = new int[3];
         leftButton = -1;
         rightButton = -1;
         RefreshRecomProf();
         lastRobot = 0;
+        ifTestBegin = false;
+        ifMainScreen = true;
         getSupportActionBar().hide();
         setContentView(R.layout.activity_main);
     }
@@ -49,6 +52,8 @@ public class MainActivity extends AppCompatActivity
     public void ButtonStartClick(View v)
     {
         setContentView(R.layout.test);
+        ifTestBegin = true;
+        ifMainScreen = false;
         question = findViewById(R.id.question);
         button1 = findViewById(R.id.firstButton);
         button2 = findViewById(R.id.secondButton);
@@ -61,12 +66,14 @@ public class MainActivity extends AppCompatActivity
     // обработка события нажатия на кнопку "ПРОФЕССИИ"
     public void ButtonProfessionsClick(View v)
     {
+        ifMainScreen = false;
         ConclusionProfessions(false);
     }
 
     // обработка события нажатия на кнопку "ИНФОРМАЦИЯ"
     public void ButtonAboutClick(View v)
     {
+        ifMainScreen = false;
         setContentView(R.layout.about);
     }
 
@@ -78,8 +85,6 @@ public class MainActivity extends AppCompatActivity
         if (questionId != 0)
         {
             String[] questionWithAnswers = getResources().getStringArray(questionId);
-            //SpannableString buf =  new SpannableString(questionWithAnswers[0]);
-            //buf.setSpan(new RelativeSizeSpan(2f), 0, questionWithAnswers[0].length(), Spanned.SPAN_EXCLUSIVE_INCLUSIVE);
             question.setText(questionWithAnswers[0]);
             button1.setText(questionWithAnswers[1]);
             button2.setText(questionWithAnswers[2]);
@@ -91,6 +96,7 @@ public class MainActivity extends AppCompatActivity
         {
             ConclusionProfessions(true);
             RefreshRecomProf();
+            ifTestBegin = false;
         }
     }
 
@@ -117,6 +123,8 @@ public class MainActivity extends AppCompatActivity
     {
         RefreshRecomProf();
         curQuestionNum = 1;
+        ifTestBegin = false;
+        ifMainScreen = true;
         setContentView(R.layout.activity_main);
     }
 
@@ -220,5 +228,40 @@ public class MainActivity extends AppCompatActivity
         }
         robot.setBackgroundResource(getResources().getIdentifier("robot" + robotNum,"drawable", getPackageName()));
         lastRobot = robotNum;
+    }
+
+    // выполняет свою работу ТОЛЬКО во время прохождения теста или нахождения на стартовом экране, меняет расположение элементов на экране
+    // в зависимости от ориентации экрана для более удобного прохождения теста или для более удобного представления стартового меню
+    @Override
+    public void onConfigurationChanged(Configuration newConfig)
+    {
+        super.onConfigurationChanged(newConfig);
+        if ((newConfig.orientation == Configuration.ORIENTATION_LANDSCAPE || newConfig.orientation == Configuration.ORIENTATION_PORTRAIT) && ifTestBegin)
+        {
+            setContentView(R.layout.test);
+            int prog = 1;
+            int buf = curQuestionNum;
+            while (buf / 2 != 0)
+            {
+                buf /= 2;
+                prog++;
+            }
+            progress = findViewById(R.id.progress);
+            progress.setProgress(prog);
+            int questionId = getApplicationContext().getResources().getIdentifier("q" + curQuestionNum, "array", getPackageName());
+            String[] questionWithAnswers = getResources().getStringArray(questionId);
+            question = findViewById(R.id.question);
+            button1 = findViewById(R.id.firstButton);
+            button2 = findViewById(R.id.secondButton);
+            question.setText(questionWithAnswers[0]);
+            button1.setText(questionWithAnswers[1]);
+            button2.setText(questionWithAnswers[2]);
+            ImageView robot = findViewById(R.id.robot);
+            robot.setBackgroundResource(getResources().getIdentifier("robot" + lastRobot,"drawable", getPackageName()));
+        }
+        if ((newConfig.orientation == Configuration.ORIENTATION_LANDSCAPE || newConfig.orientation == Configuration.ORIENTATION_PORTRAIT) && ifMainScreen)
+        {
+            setContentView(R.layout.activity_main);
+        }
     }
 }
