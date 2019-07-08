@@ -21,7 +21,9 @@
             android:layout_height="wrap_content"
             android:textSize="20sp"
             android:text="@string/about"
-            android:layout_margin="5dp"/>
+            android:layout_margin="5dp"
+            android:linksClickable="true"
+            android:autoLink="web" />
         <Button
             android:id="@id/menu"
             android:layout_width="match_parent"

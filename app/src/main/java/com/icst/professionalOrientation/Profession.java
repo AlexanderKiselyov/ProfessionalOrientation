@@ -13,7 +13,7 @@ public class Profession
 
     public Profession(SpannableString name, SpannableString briefDescription, SpannableString profFirst , SpannableString profSecond, SpannableString profThird)
     {
-        this.name=name;
+        this.name = name;
         this.briefDescription = briefDescription;
         this.profFirst = profFirst ;
         this.profSecond = profSecond;

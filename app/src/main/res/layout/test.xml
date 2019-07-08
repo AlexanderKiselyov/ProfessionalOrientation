@@ -29,7 +29,7 @@
             android:layout_margin="10dp"
             android:minHeight="50dp"
             android:indeterminate="false"
-            android:max="3"
+            android:max="4"
             android:progress="0" />
     </LinearLayout>
     <TextView
