@@ -27,7 +27,7 @@
         <item>Хорошо ли ты знал математику в школе?</item>
         <item>Отлично знал!</item>
         <item>Средне знал</item>
-        <item>0</item>
+        <item>-1</item>
         <item>-1</item>
     </string-array>
     <string-array name="q4">
@@ -49,13 +49,143 @@
         <item>Ага, хочу</item>
         <item>Не, не особо</item>
         <item>3</item>
-        <item>-1</item> //тут поменять в будущем
+        <item>-1</item>
     </string-array>
     <string-array name="q7">
         <item>Чему бы ты отвел больше времени: проектированию или программированию?</item>
         <item>Проектированию</item>
         <item>Программированию</item>
-        <item>4</item> //тут поменять в будущем
-        <item>5</item> //тут поменять в будущем
+        <item>-1</item>
+        <item>-1</item>
     </string-array>
+    <string-array name="q8">
+        <item>Как насчет копания в чужих проектах?</item>
+        <item>Хочу!</item>
+        <item>Не особо</item>
+        <item>7</item>
+        <item>-1</item>
+    </string-array>
+    <string-array name="q9">
+        <item>Как насчет копания в чужих проектах?</item>
+        <item>Хочу!</item>
+        <item>Не особо</item>
+        <item>7</item>
+        <item>-1</item>
+    </string-array>
+    <string-array name="q10">
+        <item>Как насчет копания в чужих проектах?</item>
+        <item>Хочу!</item>
+        <item>Не особо</item>
+        <item>7</item>
+        <item>-1</item>
+    </string-array>
+    <string-array name="q11">
+        <item>Что для тебя важнее: тестирование или оптимизирование систем?</item>
+        <item>Тестирование</item>
+        <item>Оптимизация</item>
+        <item>4</item>
+        <item>8</item>
+    </string-array>
+    <string-array name="q12">
+        <item>Это может быть операционная система и драйвер или как работает машинное обучение?</item>
+        <item>Операционная система</item>
+        <item>Машинное обучение</item>
+        <item>8</item>
+        <item>10</item>
+    </string-array>
+    <string-array name="q13">
+        <item>Это может быть операционная система и драйвер или как работает машинное обучение?</item>
+        <item>Операционная система</item>
+        <item>Машинное обучение</item>
+        <item>8</item>
+        <item>10</item>
+    </string-array>
+    <string-array name="q14">
+        <item>Чувствуешь ли ты в себе силы командовать людьми?</item>
+        <item>Ага, всегда хотел командовать</item>
+        <item>Что то этих сил нет</item>
+        <item>9</item>
+        <item>-1</item>
+    </string-array>
+    <string-array name="q15">
+        <item> Ты хочешь больше работать с финансами или с телефонами?</item>
+        <item>Мобильные технологии</item>
+        <item>Финансы</item>
+        <item>0</item>
+        <item>6</item>//поменять!!!
+    </string-array>
+    <string-array name="q19">
+        <item>Технология мобильной связи?</item>
+        <item>Конечно да!</item>
+        <item>Как то не очень</item>
+        <item>0</item>
+        <item>-1</item>
+    </string-array>
+    <string-array name="q21">
+        <item>Ага, всегда хотел командовать</item>
+        <item>Что то этих сил нет</item>
+        <item>9</item>
+        <item>-1</item>
+</string-array>
+    <string-array name="q22">
+        <item>Интересна ли тебе работа операционной системы?</item>
+        <item>Очень интересно</item>
+        <item>Не очень интересно</item>
+        <item>8</item>
+        <item>-1</item>
+    </string-array>
+
+    <string-array name="q23">
+        <item>Есть желание продвинуться в машинном обучении?</item>
+        <item>Есть желание!</item>
+        <item>Нет желания</item>
+        <item>10</item>
+        <item>-1</item>
+    </string-array>
+    <string-array name="q26">
+        <item>Есть желание научиться тестировать работоспособность системы?</item>
+        <item>Да</item>
+        <item>Нет</item>
+        <item>4</item>
+        <item>-1</item>
+    </string-array>
+    <string-array name="q27">
+        <item>Как насчет копания в чужих проектах?</item>
+        <item>Хочу!</item>
+        <item>Не особо</item>
+        <item>7</item>
+        <item>-1</item>
+    </string-array>
+    <string-array name="q28">
+    <item>Было бы тебе интересно разработать свой сайт?</item>
+    <item>Да, интересно</item>
+    <item>Нет, не интересно</item>
+    <item>1</item>
+    <item>-1</item>
+    </string-array>
+    <string-array name="q29">
+        <item>Создавать сложные системы хранения информации или создавать сложные бизнес-системы?</item>
+        <item>Системы хранения информации</item>
+        <item>Бизнес-система</item>
+        <item>11</item>
+        <item>12</item>
+    </string-array>
+
+    <string-array name="q30">
+        <item>Вы хотите связать себя с компьютерными играми?</item>
+        <item>Да, хочу</item>
+        <item>Нет, не хочу</item>
+        <item>2</item>
+        <item>-1</item>
+    </string-array>
+
+    <string-array name="q31">
+        <item>Было бы тебе интересно разработать свой сайт?</item>
+        <item>Да, интересно</item>
+        <item>Нет, не интересно</item>
+        <item>1</item>
+        <item>-1</item>
+    </string-array>
+
+
 </resources>
