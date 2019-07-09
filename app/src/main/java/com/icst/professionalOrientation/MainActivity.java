@@ -158,13 +158,13 @@ public class MainActivity extends AppCompatActivity
                     buf[0] =  new SpannableString(prof[recom_prof[i]] + "\n\n");
                     buf[0].setSpan(new RelativeSizeSpan(2f), 0, prof[recom_prof[i]].length(), Spanned.SPAN_EXCLUSIVE_INCLUSIVE);
                     buf[1] = new SpannableString(desc[recom_prof[i]]);
-                    buf[1].setSpan(new RelativeSizeSpan(1f), 0, desc[recom_prof[i]].length(), Spanned.SPAN_EXCLUSIVE_INCLUSIVE);
+                    buf[1].setSpan(new RelativeSizeSpan(1.5f), 0, desc[recom_prof[i]].length(), Spanned.SPAN_EXCLUSIVE_INCLUSIVE);
                     buf[2] = new SpannableString(profFirst[recom_prof[i]]);
-                    buf[2].setSpan(new RelativeSizeSpan(1f), 0, profFirst[recom_prof[i]].length(), Spanned.SPAN_EXCLUSIVE_INCLUSIVE);
+                    buf[2].setSpan(new RelativeSizeSpan(1.5f), 0, profFirst[recom_prof[i]].length(), Spanned.SPAN_EXCLUSIVE_INCLUSIVE);
                     buf[3] =  new SpannableString(profSecond[recom_prof[i]]);
-                    buf[3].setSpan(new RelativeSizeSpan(1f), 0, profSecond[recom_prof[i]].length(), Spanned.SPAN_EXCLUSIVE_INCLUSIVE);
+                    buf[3].setSpan(new RelativeSizeSpan(1.5f), 0, profSecond[recom_prof[i]].length(), Spanned.SPAN_EXCLUSIVE_INCLUSIVE);
                     buf[4] =  new SpannableString(profThird[recom_prof[i]]);
-                    buf[4].setSpan(new RelativeSizeSpan(1f), 0, profThird[recom_prof[i]].length(), Spanned.SPAN_EXCLUSIVE_INCLUSIVE);
+                    buf[4].setSpan(new RelativeSizeSpan(1.5f), 0, profThird[recom_prof[i]].length(), Spanned.SPAN_EXCLUSIVE_INCLUSIVE);
                     professions.add(new Profession(buf[0], buf[1], buf[2], buf[3], buf[4]));
                 }
             }
@@ -177,13 +177,13 @@ public class MainActivity extends AppCompatActivity
                 buf[0] =  new SpannableString(prof[i] + "\n\n");
                 buf[0].setSpan(new RelativeSizeSpan(2f), 0, prof[i].length(), Spanned.SPAN_EXCLUSIVE_INCLUSIVE);
                 buf[1] = new SpannableString(desc[i]);
-                buf[1].setSpan(new RelativeSizeSpan(1f), 0, desc[i].length(), Spanned.SPAN_EXCLUSIVE_INCLUSIVE);
+                buf[1].setSpan(new RelativeSizeSpan(1.5f), 0, desc[i].length(), Spanned.SPAN_EXCLUSIVE_INCLUSIVE);
                 buf[2] = new SpannableString(profFirst[i]);
-                buf[2].setSpan(new RelativeSizeSpan(1f), 0, profFirst[i].length(), Spanned.SPAN_EXCLUSIVE_INCLUSIVE);
+                buf[2].setSpan(new RelativeSizeSpan(1.5f), 0, profFirst[i].length(), Spanned.SPAN_EXCLUSIVE_INCLUSIVE);
                 buf[3] =  new SpannableString(profSecond[i]);
-                buf[3].setSpan(new RelativeSizeSpan(1f), 0, profSecond[i].length(), Spanned.SPAN_EXCLUSIVE_INCLUSIVE);
+                buf[3].setSpan(new RelativeSizeSpan(1.5f), 0, profSecond[i].length(), Spanned.SPAN_EXCLUSIVE_INCLUSIVE);
                 buf[4] =  new SpannableString(profThird[i]);
-                buf[4].setSpan(new RelativeSizeSpan(1f), 0, profThird[i].length(), Spanned.SPAN_EXCLUSIVE_INCLUSIVE);
+                buf[4].setSpan(new RelativeSizeSpan(1.5f), 0, profThird[i].length(), Spanned.SPAN_EXCLUSIVE_INCLUSIVE);
                 professions.add(new Profession(buf[0], buf[1], buf[2], buf[3], buf[4]));
             }
         }

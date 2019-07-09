@@ -29,7 +29,9 @@
             android:layout_above="@+id/prof"
             android:layout_marginBottom="20dp"
             android:onClick="ButtonStartClick"
-            android:text="Начать тест" />
+            android:text="Начать тест"
+            style="@style/Button"
+            android:textColor="@color/black" />
         <Button
             android:id="@+id/prof"
             android:layout_width="match_parent"
@@ -37,7 +39,9 @@
             android:textSize="30sp"
             android:layout_centerInParent="true"
             android:onClick="ButtonProfessionsClick"
-            android:text="Профессии" />
+            android:text="Профессии"
+            style="@style/Button"
+            android:textColor="@color/black" />
         <Button
             android:id="@+id/about"
             android:layout_width="match_parent"
@@ -47,6 +51,8 @@
             android:layout_centerInParent="true"
             android:layout_marginTop="20dp"
             android:onClick="ButtonAboutClick"
-            android:text="Информация" />
+            android:text="Информация"
+            style="@style/Button"
+            android:textColor="@color/black" />
     </RelativeLayout>
 </LinearLayout>
