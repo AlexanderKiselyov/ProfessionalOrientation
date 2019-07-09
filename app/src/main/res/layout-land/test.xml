@@ -70,7 +70,7 @@
             android:textStyle="italic"
             android:onClick="Button1Click"
             android:textSize="15sp"
-            android:background="@color/green"
+            style="@style/Button"
             android:textColor="@color/black" />
         <Button
             android:id="@+id/secondButton"
@@ -81,7 +81,7 @@
             android:layout_weight="1"
             android:onClick="Button2Click"
             android:textSize="15sp"
-            android:background="@color/green"
+            style="@style/Button"
             android:textColor="@color/black" />
     </LinearLayout>
 

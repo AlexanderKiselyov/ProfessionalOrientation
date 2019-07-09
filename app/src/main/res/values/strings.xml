@@ -10,11 +10,8 @@
                         Сайт ИКНТ Политеха: https://icst.spbstu.ru\n
                         \n
                         Приложение создали студенты 2 курса кафедры КИТ ИКНТ СПБПУ Киселев А.А. и Ижко Г.А..\n
-                        При создании приложения была использована Material Expansion Panel:\n
-                        https://github.com/robertlevonyan/materialExpansionPanel\n
-                        Material Expansion Panel©\n
-                        Copyright 2017 Robert Levonyan\n
-                        </string>
+                        Copyright 2019 Alexander Kiselyov.\n
+                        Licensed under the Apache License, Version 2.0.\n</string>
 
     // Вопросы к тесту: 1. Вопрос; 2. Ответ 1; 3. Ответ 2; 4. Номер профессии, который может добавиться в результат после нажатия на ответ 2
     // ("-1" означает, что ответ на выбор профессии напрямую не влияет); 5. Номер профессии, который может добавиться в результат после
