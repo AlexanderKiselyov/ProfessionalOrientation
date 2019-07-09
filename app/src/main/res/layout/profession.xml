@@ -44,4 +44,8 @@
         <include
             layout="@layout/content_links" />
     </com.robertlevonyan.views.expandable.Expandable>
+    <View
+        android:layout_width="fill_parent"
+        android:layout_height="8dp"
+        android:background="@color/green" />
 </LinearLayout>

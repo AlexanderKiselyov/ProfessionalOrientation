@@ -16,8 +16,9 @@
     <!-- ProgressBar form -->
     <style name="ProgressBarHorizontal" parent="@style/Widget.AppCompat.ProgressBar.Horizontal">
         <item name="android:progressBackgroundTint">@color/white</item>
-        <item name="android:progressTint">@color/black</item>
+        <item name="android:progressTint">@color/green</item>
         <item name="android:minHeight">50dp</item>
     </style>
+
 
 </resources>
