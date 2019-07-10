@@ -26,6 +26,7 @@ public class ProfAdapter extends RecyclerView.Adapter<ProfAdapter.ViewHolder> {
         final TextView profFirst;
         final TextView profSecond;
         final TextView profThird;
+        final View stripe;
         public ViewHolder(View v)
         {
             super(v);
@@ -34,12 +35,12 @@ public class ProfAdapter extends RecyclerView.Adapter<ProfAdapter.ViewHolder> {
             profFirst = v.findViewById(R.id.content_competence);
             profSecond = v.findViewById(R.id.content_salary);
             profThird = v.findViewById(R.id.content_links);
+            stripe = v.findViewById(R.id.stripe);
         }
     }
 
     @Override
     public ProfAdapter.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        // create a new view
         View v = inf.inflate(R.layout.profession, parent, false);
         return new ViewHolder(v);
     }
@@ -53,6 +54,10 @@ public class ProfAdapter extends RecyclerView.Adapter<ProfAdapter.ViewHolder> {
         holder.profFirst.setText(prof.getProfFirst());
         holder.profSecond.setText(prof.getProfSecond());
         holder.profThird.setText(prof.getProfThird());
+        if (position == getItemCount() - 1)
+        {
+            holder.stripe.setVisibility(View.INVISIBLE);
+        }
     }
 
     @Override

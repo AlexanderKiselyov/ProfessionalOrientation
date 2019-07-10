@@ -4,84 +4,85 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:background="#FFFFFF">
-
+    android:background="@color/white">
     <LinearLayout
-        android:id="@+id/upperBar"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
         android:orientation="horizontal"
-        android:background="@color/white"
-        android:layout_weight="20">
+        android:layout_weight="1">
         <Button
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="5dp"
             android:onClick="ButtonMenuClick"
             android:text="Меню"
             style="@style/Button"
-            android:layout_weight="7"/>
+            android:layout_weight="1"/>
         <ProgressBar
             android:id="@+id/progress"
             style="@style/ProgressBarHorizontal"
-            android:layout_weight="1"
-            android:layout_gravity="center_vertical|fill_horizontal"
+            android:layout_weight="3"
+            android:layout_gravity="center_vertical|center_horizontal"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_margin="10dp"
+            android:layout_margin="5dp"
             android:indeterminate="false"
             android:max="4"/>
     </LinearLayout>
-    <TextView
-        android:id="@+id/question"
-        android:layout_width = "match_parent"
-        android:layout_height = "match_parent"
-        android:background="@drawable/message2"
-        android:autoSizeTextType="uniform"
-        android:textColor="@color/black"
-        android:textStyle="italic"
-        android:layout_margin="10dp"
-        android:layout_weight="11"/>
     <LinearLayout
-        android:id="@+id/robotAndAnswers"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_weight="13"
-        android:orientation="horizontal"
-        android:layout_margin="10dp">
-        <ImageView
-            android:id="@+id/robot"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_weight="3" />
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_weight="200">
+        <TextView
+            android:id="@+id/question"
+            android:layout_width = "match_parent"
+            android:layout_height = "match_parent"
+            android:background="@drawable/message2"
+            android:autoSizeTextType="uniform"
+            android:textColor="@color/black"
+            android:textStyle="italic"
+            android:layout_margin="10dp"
+            android:layout_weight="9"/>
         <LinearLayout
-            android:id="@+id/answers"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_weight="3"
-            android:orientation="vertical">
-            <Button
-                android:id="@+id/firstButton"
+            android:layout_weight="11"
+            android:orientation="horizontal"
+            android:layout_margin="10dp">
+            <ImageView
+                android:id="@+id/robot"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:layout_gravity="center"
-                android:layout_margin="5dp"
-                android:layout_weight="1"
-                android:onClick="Button1Click"
-                android:textSize="15sp"
-                style="@style/Button"
-                android:textColor="@color/black" />
-            <Button
-                android:id="@+id/secondButton"
+                android:layout_weight="1" />
+            <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:layout_gravity="center"
-                android:layout_margin="5dp"
                 android:layout_weight="1"
-                android:onClick="Button2Click"
-                android:textSize="15sp"
-                style="@style/Button"
-                android:textColor="@color/black" />
+                android:orientation="vertical">
+                <Button
+                    android:id="@+id/firstButton"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="center"
+                    android:layout_margin="5dp"
+                    android:layout_weight="1"
+                    android:onClick="Button1Click"
+                    android:textSize="15sp"
+                    style="@style/Button"
+                    android:textColor="@color/black" />
+                <Button
+                    android:id="@+id/secondButton"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="center"
+                    android:layout_margin="5dp"
+                    android:layout_weight="1"
+                    android:onClick="Button2Click"
+                    android:textSize="15sp"
+                    style="@style/Button"
+                    android:textColor="@color/black" />
+            </LinearLayout>
         </LinearLayout>
     </LinearLayout>
-
 </LinearLayout>

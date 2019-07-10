@@ -4,56 +4,55 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:background="#FFFFFF">
-
+    android:background="@color/white">
     <LinearLayout
-        android:id="@+id/upperBar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
         android:background="@color/white"
         android:layout_weight="1">
         <Button
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="5dp"
             android:onClick="ButtonMenuClick"
             android:text="Меню"
             style="@style/Button"
-            android:layout_weight="7"/>
+            android:layout_weight="1"/>
         <ProgressBar
             android:id="@+id/progress"
             style="@style/ProgressBarHorizontal"
-            android:layout_weight="1"
+            android:layout_weight="3"
+            android:layout_gravity="center_vertical|center_horizontal"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_margin="10dp"
+            android:layout_margin="5dp"
             android:indeterminate="false"
             android:max="4"
             android:progress="0" />
     </LinearLayout>
     <LinearLayout
-        android:id="@+id/robotAndAnswers"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        android:layout_margin="10dp"
-        android:layout_weight="50">
+        android:layout_weight="200">
         <ImageView
             android:id="@+id/robot"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_margin="5dp"
             android:layout_weight="3" />
         <TextView
             android:id="@+id/question"
             android:layout_width = "match_parent"
             android:layout_height = "match_parent"
+            android:layout_margin="5dp"
             android:background="@drawable/message"
             android:autoSizeTextType="uniform"
             android:textColor="@color/black"
             android:layout_weight="1" />
     </LinearLayout>
     <LinearLayout
-        android:id="@+id/answers"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_weight="2"
@@ -83,5 +82,4 @@
             style="@style/Button"
             android:textColor="@color/black" />
     </LinearLayout>
-
 </LinearLayout>
