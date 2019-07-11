@@ -37,6 +37,7 @@ public class MainActivity extends AppCompatActivity
     {
         super.onCreate(savedInstanceState);
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
+        getSupportActionBar().hide();
         recom_prof = new int[3];
         leftButton = -1;
         rightButton = -1;
@@ -44,7 +45,6 @@ public class MainActivity extends AppCompatActivity
         lastRobot = 0;
         ifTestBegin = false;
         ifMainScreen = true;
-        getSupportActionBar().hide();
         setContentView(R.layout.activity_main);
     }
 
@@ -263,5 +263,16 @@ public class MainActivity extends AppCompatActivity
         {
             setContentView(R.layout.activity_main);
         }
+    }
+
+    // обработка события нажатия на аппаратную кнопку "НАЗАД"
+    @Override
+    public void onBackPressed()
+    {
+        RefreshRecomProf();
+        curQuestionNum = 1;
+        ifTestBegin = false;
+        ifMainScreen = true;
+        setContentView(R.layout.activity_main);
     }
 }

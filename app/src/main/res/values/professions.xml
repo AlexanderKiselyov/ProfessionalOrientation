@@ -292,13 +292,27 @@
         <item>100 — 250 тысяч рублей</item>
     </string-array>
 
+    <!--<item>Программист мобильных технологий</item>
+    <item>Программист веб-технологий</item>
+    <item>Разработчик компьютерных игр</item>
+    <item>Специалист по компьютерной безопасности</item>
+    <item>Тестировщик программного обеспечения</item>
+    <item>Системный администратор</item>
+    <item>Программист 1С</item>
+    <item>SEO-специалист</item>
+    <item>Инженер-программист</item>
+    <item>Менеджер проектов</item>
+    <item>Аналитик больших данных</item>
+    <item>Администратор баз данных</item>
+    <item>Архитектор программного обеспечения</item>-->
+
     <string-array name="profThird">
         <item>Специальности в Институте Компьютерных Наук и Технологий:\n
             \n
             Профессия на HeadHunter:\n
             https://clck.ru/GxuSg</item>
         <item>Специальности в Институте Компьютерных Наук и Технологий:\n
-            \n
+            1. https://dep.spbstu.ru/edu/09.03.03/09.03.03_03\n
             Профессия на HeadHunter:\n
             https://clck.ru/GxuXH</item>
         <item>Специальности в Институте Компьютерных Наук и Технологий:\n
@@ -310,11 +324,15 @@
             Профессия на HeadHunter:\n
             https://clck.ru/GxuYm</item>
         <item>Специальности в Институте Компьютерных Наук и Технологий:\n
-            \n
+            1. https://dep.spbstu.ru/edu/09.03.04/09.03.04_03\n
+            2. https://dep.spbstu.ru/edu/09.03.02/09.03.02_02\n
+            3. https://dep.spbstu.ru/edu/02.03.02/02.03.02_02\n
             Профессия на HeadHunter:\n
             https://clck.ru/GxuZf</item>
         <item>Специальности в Институте Компьютерных Наук и Технологий:\n
-            \n
+            1. https://dep.spbstu.ru/edu/27.03.03/27.03.03_01\n
+            2. https://dep.spbstu.ru/edu/09.03.02/09.03.02_02\n
+            3. https://dep.spbstu.ru/edu/02.03.02/02.03.02_02\n
             Профессия на HeadHunter:\n
             https://clck.ru/Gxuae</item>
         <item>Специальности в Институте Компьютерных Наук и Технологий:\n
@@ -326,11 +344,13 @@
             Профессия на HeadHunter:\n
             https://clck.ru/Gxuc5</item>
         <item>Специальности в Институте Компьютерных Наук и Технологий:\n
-            \n
+            1. https://dep.spbstu.ru/edu/09.03.04/09.03.04_03\n
+            2. https://dep.spbstu.ru/edu/02.03.02/02.03.02_02\n
             Профессия на HeadHunter:\n
             https://clck.ru/Gxuci</item>
         <item>Специальности в Институте Компьютерных Наук и Технологий:\n
-            \n
+            1. https://dep.spbstu.ru/edu/27.03.05/27.03.05_01\n
+            2. https://dep.spbstu.ru/edu/02.03.02/02.03.02_02\n
             Профессия на HeadHunter:\n
             https://clck.ru/GxudP</item>
         <item>Специальности в Институте Компьютерных Наук и Технологий:\n
@@ -338,11 +358,13 @@
             Профессия на HeadHunter:\n
             https://clck.ru/Gxudx</item>
         <item>Специальности в Институте Компьютерных Наук и Технологий:\n
-            \n
+            1. https://dep.spbstu.ru/edu/27.03.03/27.03.03_01\n
+            2. https://dep.spbstu.ru/edu/09.03.02/09.03.02_02\n
+            3. https://dep.spbstu.ru/edu/02.03.03/02.03.03_01\n
             Профессия на HeadHunter:\n
             https://clck.ru/GxueW</item>
         <item>Специальности в Институте Компьютерных Наук и Технологий:\n
-            \n
+            1. https://dep.spbstu.ru/edu/09.03.04/09.03.04_03\n
             Профессия на HeadHunter:\n
             https://clck.ru/GxufM</item>
     </string-array>

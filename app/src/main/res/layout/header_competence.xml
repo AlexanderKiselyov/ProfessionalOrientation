@@ -10,5 +10,5 @@
         android:textSize="20sp"
         android:text="@string/profFirst"
         android:textStyle="italic"
-        android:textColor="@color/black" />
+        android:textColor="@color/green" />
 </LinearLayout>
