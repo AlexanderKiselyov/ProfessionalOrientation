@@ -8,7 +8,6 @@ import android.view.ViewGroup;
 import android.view.View;
 import java.util.List;
 
-
 public class ProfAdapter extends RecyclerView.Adapter<ProfAdapter.ViewHolder> {
     private List<Profession> mDataset;
     private LayoutInflater inf;

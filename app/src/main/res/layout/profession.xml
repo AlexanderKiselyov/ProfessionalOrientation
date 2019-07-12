@@ -11,22 +11,33 @@
     <com.github.florent37.expansionpanel.ExpansionHeader
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:expansion_headerIndicator="@id/oneProfName"
+        app:expansion_headerIndicator="@id/arrow1"
         app:expansion_layout="@id/content_profession_panel"
-        app:expansion_headerIndicatorRotationExpanded="0"
+        app:expansion_headerIndicatorRotationExpanded="180"
         app:expansion_headerIndicatorRotationCollapsed="0"
         app:expansion_toggleOnClick="true">
         <android.support.v7.widget.CardView
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
-            <TextView
-                android:id="@+id/oneProfName"
+            <RelativeLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:padding="5dp"
-                android:textSize="25dp"
-                android:background="@drawable/border"
-                android:textColor="@color/green" />
+                android:layout_height="wrap_content">
+                <TextView
+                    android:id="@+id/oneProfName"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="5dp"
+                    android:textSize="25dp"
+                    android:background="@drawable/border"
+                    android:textColor="@color/green" />
+                <ImageView
+                    android:id="@+id/arrow1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerInParent="true"
+                    android:layout_alignParentEnd="true"
+                    android:background="@drawable/arrow"/>
+            </RelativeLayout>
         </android.support.v7.widget.CardView>
     </com.github.florent37.expansionpanel.ExpansionHeader>
     <com.github.florent37.expansionpanel.ExpansionLayout
@@ -51,23 +62,34 @@
                 <com.github.florent37.expansionpanel.ExpansionHeader
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    app:expansion_headerIndicator="@id/header_desc"
+                    app:expansion_headerIndicator="@id/arrow2"
                     app:expansion_layout="@id/content_desc_panel"
-                    app:expansion_headerIndicatorRotationExpanded="0"
+                    app:expansion_headerIndicatorRotationExpanded="180"
                     app:expansion_headerIndicatorRotationCollapsed="0"
                     app:expansion_toggleOnClick="true">
                     <android.support.v7.widget.CardView
                         android:id="@+id/header_desc"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content">
-                        <TextView
+                        <RelativeLayout
                             android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:textSize="18sp"
-                            android:padding="5dp"
-                            android:text="@string/profFirst"
-                            android:background="@drawable/border"
-                            android:textColor="@color/green" />
+                            android:layout_height="wrap_content">
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:textSize="18sp"
+                                android:padding="5dp"
+                                android:text="@string/profFirst"
+                                android:background="@drawable/border"
+                                android:textColor="@color/green" />
+                            <ImageView
+                                android:id="@+id/arrow2"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_centerInParent="true"
+                                android:layout_alignParentEnd="true"
+                                android:background="@drawable/arrow"/>
+                        </RelativeLayout>
                     </android.support.v7.widget.CardView>
                 </com.github.florent37.expansionpanel.ExpansionHeader>
                 <com.github.florent37.expansionpanel.ExpansionLayout
@@ -90,23 +112,34 @@
                 <com.github.florent37.expansionpanel.ExpansionHeader
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    app:expansion_headerIndicator="@id/header_competence"
+                    app:expansion_headerIndicator="@id/arrow3"
                     app:expansion_layout="@id/content_competence_panel"
-                    app:expansion_headerIndicatorRotationExpanded="0"
+                    app:expansion_headerIndicatorRotationExpanded="180"
                     app:expansion_headerIndicatorRotationCollapsed="0"
                     app:expansion_toggleOnClick="true">
                     <android.support.v7.widget.CardView
                         android:id="@+id/header_competence"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content">
-                        <TextView
+                        <RelativeLayout
                             android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:textSize="18sp"
-                            android:padding="5dp"
-                            android:textColor="@color/green"
-                            android:background="@drawable/border"
-                            android:text="@string/profSecond" />
+                            android:layout_height="wrap_content">
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:textSize="18sp"
+                                android:padding="5dp"
+                                android:textColor="@color/green"
+                                android:background="@drawable/border"
+                                android:text="@string/profSecond" />
+                            <ImageView
+                                android:id="@+id/arrow3"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_centerInParent="true"
+                                android:layout_alignParentEnd="true"
+                                android:background="@drawable/arrow"/>
+                        </RelativeLayout>
                     </android.support.v7.widget.CardView>
                 </com.github.florent37.expansionpanel.ExpansionHeader>
                 <com.github.florent37.expansionpanel.ExpansionLayout
@@ -129,23 +162,34 @@
                 <com.github.florent37.expansionpanel.ExpansionHeader
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    app:expansion_headerIndicator="@id/header_salary"
+                    app:expansion_headerIndicator="@id/arrow4"
                     app:expansion_layout="@id/content_salary_panel"
-                    app:expansion_headerIndicatorRotationExpanded="0"
+                    app:expansion_headerIndicatorRotationExpanded="180"
                     app:expansion_headerIndicatorRotationCollapsed="0"
                     app:expansion_toggleOnClick="true">
                     <android.support.v7.widget.CardView
                         android:id="@+id/header_salary"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content">
-                        <TextView
+                        <RelativeLayout
                             android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:textSize="18sp"
-                            android:padding="5dp"
-                            android:text="@string/profThird"
-                            android:background="@drawable/border"
-                            android:textColor="@color/green" />
+                            android:layout_height="wrap_content">
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:textSize="18sp"
+                                android:padding="5dp"
+                                android:text="@string/profThird"
+                                android:background="@drawable/border"
+                                android:textColor="@color/green" />
+                            <ImageView
+                                android:id="@+id/arrow4"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_centerInParent="true"
+                                android:layout_alignParentEnd="true"
+                                android:background="@drawable/arrow"/>
+                        </RelativeLayout>
                     </android.support.v7.widget.CardView>
                 </com.github.florent37.expansionpanel.ExpansionHeader>
                 <com.github.florent37.expansionpanel.ExpansionLayout
@@ -170,23 +214,34 @@
                 <com.github.florent37.expansionpanel.ExpansionHeader
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    app:expansion_headerIndicator="@id/header_links"
+                    app:expansion_headerIndicator="@id/arrow5"
                     app:expansion_layout="@id/content_links_panel"
-                    app:expansion_headerIndicatorRotationExpanded="0"
+                    app:expansion_headerIndicatorRotationExpanded="180"
                     app:expansion_headerIndicatorRotationCollapsed="0"
                     app:expansion_toggleOnClick="true">
                     <android.support.v7.widget.CardView
                         android:id="@+id/header_links"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content">
-                        <TextView
+                        <RelativeLayout
                             android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:padding="5dp"
-                            android:textSize="18sp"
-                            android:text="@string/profFourth"
-                            android:background="@drawable/border"
-                            android:textColor="@color/green"/>
+                            android:layout_height="wrap_content">
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:padding="5dp"
+                                android:textSize="18sp"
+                                android:text="@string/profFourth"
+                                android:background="@drawable/border"
+                                android:textColor="@color/green"/>
+                            <ImageView
+                                android:id="@+id/arrow5"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_centerInParent="true"
+                                android:layout_alignParentEnd="true"
+                                android:background="@drawable/arrow"/>
+                        </RelativeLayout>
                     </android.support.v7.widget.CardView>
                 </com.github.florent37.expansionpanel.ExpansionHeader>
                 <com.github.florent37.expansionpanel.ExpansionLayout
