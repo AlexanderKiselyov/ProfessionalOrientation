@@ -42,7 +42,8 @@ public class MainActivity extends AppCompatActivity
         super.onCreate(savedInstanceState);
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
         getSupportActionBar().hide();
-        face = Typeface.createFromAsset(getAssets(), "fonts/newFont.ttf");
+        TypeFaceUtil.overrideFont(getApplicationContext(), "SANS_SERIF", "fonts/2211.ttf");
+        face = Typeface.createFromAsset(getAssets(), "fonts/17381.ttf");
         recom_prof = new int[3];
         leftButton = -1;
         rightButton = -1;

@@ -71,7 +71,7 @@
                     android:layout_margin="5dp"
                     android:layout_weight="1"
                     android:onClick="Button1Click"
-                    android:textSize="20dp"
+                    android:textSize="19dp"
                     style="@style/Button"
                     android:textColor="@color/black" />
                 <Button
@@ -82,7 +82,7 @@
                     android:layout_margin="5dp"
                     android:layout_weight="1"
                     android:onClick="Button2Click"
-                    android:textSize="20dp"
+                    android:textSize="19dp"
                     style="@style/Button"
                     android:textColor="@color/black" />
             </LinearLayout>
