@@ -1,72 +1,79 @@
 package com.icst.professionalOrientation;
 
-import android.text.SpannableString;
-
 public class Profession
 {
-    private SpannableString name;
-    private SpannableString briefDescription;
-    private SpannableString profFirst;
-    private SpannableString profSecond;
-    private SpannableString profThird;
+    private String name;
+    private String briefDescription;
+    private String profFirst;
+    private String profSecond;
+    private String profThird;
+    private String profFourth;
 
 
-    public Profession(SpannableString name, SpannableString briefDescription, SpannableString profFirst , SpannableString profSecond, SpannableString profThird)
+    public Profession(String name, String briefDescription, String profFirst , String profSecond, String profThird, String profFourth)
     {
         this.name = name;
         this.briefDescription = briefDescription;
         this.profFirst = profFirst ;
         this.profSecond = profSecond;
         this.profThird = profThird;
+        this.profFourth = profFourth;
     }
 
-    public SpannableString getName()
+    public String getName()
     {
         return this.name;
     }
 
-    public void setName(SpannableString name)
+    public void setName(String name)
     {
         this.name = name;
     }
 
-    public SpannableString getDescription()
+    public String getDescription()
     {
         return this.briefDescription;
     }
 
-    public void setDescription(SpannableString description)
+    public void setDescription(String description)
     {
         this.briefDescription = description;
     }
 
-    public SpannableString getProfFirst()
+    public String getProfFirst()
     {
         return this.profFirst;
     }
 
-    public void setProfFirst(SpannableString profFirst)
+    public void setProfFirst(String profFirst)
     {
         this.profFirst = profFirst;
     }
 
-    public SpannableString getProfSecond()
+    public String getProfSecond()
     {
         return this.profSecond;
     }
 
-    public void setProfSecond(SpannableString profSecond)
+    public void setProfSecond(String profSecond) { this.profSecond = profSecond; }
+
+    public String getProfThird()
     {
-        this.profSecond = profSecond;
+        return this.profThird + " руб. в месяц (по данным портала https://moikrug.ru на 1-е полугодие 2019 года для квалификации middle)";
     }
 
-    public SpannableString getProfThird()
-    {
-        return this.profThird;
-    }
-
-    public void setProfThird(SpannableString profThird)
+    public void setProfThird(String profThird)
     {
         this.profThird = profThird;
+    }
+
+    public String getProfFourth()
+    {
+        return this.profFourth;
+    }
+
+    public void setProfFourth(String profFourth)
+    {
+        this.profFourth = profFourth;
     }
 }

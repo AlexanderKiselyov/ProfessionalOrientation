@@ -21,21 +21,22 @@ public class ProfAdapter extends RecyclerView.Adapter<ProfAdapter.ViewHolder> {
 
     public static class ViewHolder extends RecyclerView.ViewHolder
     {
-        final TextView name;
-        final TextView description;
-        final TextView profFirst;
-        final TextView profSecond;
-        final TextView profThird;
-        final View stripe;
+        private TextView name;
+        private TextView description;
+        private TextView profFirst;
+        private TextView profSecond;
+        private TextView profThird;
+        private TextView profFourth;
+
         public ViewHolder(View v)
         {
             super(v);
             name = v.findViewById(R.id.oneProfName);
             description = v.findViewById(R.id.oneProfBriefDesc);
-            profFirst = v.findViewById(R.id.content_competence);
-            profSecond = v.findViewById(R.id.content_salary);
-            profThird = v.findViewById(R.id.content_links);
-            stripe = v.findViewById(R.id.stripe);
+            profFirst = v.findViewById(R.id.content_desc);
+            profSecond = v.findViewById(R.id.content_competence);
+            profThird = v.findViewById(R.id.content_salary);
+            profFourth= v.findViewById(R.id.content_links);
         }
     }
 
@@ -54,10 +55,14 @@ public class ProfAdapter extends RecyclerView.Adapter<ProfAdapter.ViewHolder> {
         holder.profFirst.setText(prof.getProfFirst());
         holder.profSecond.setText(prof.getProfSecond());
         holder.profThird.setText(prof.getProfThird());
-        if (position == getItemCount() - 1)
-        {
-            holder.stripe.setVisibility(View.INVISIBLE);
-        }
+        holder.profFourth.setText(prof.getProfFourth());
+
+        /*MainActivity main = new MainActivity();
+        holder.description.setTypeface(main.face);
+        holder.profFirst.setTypeface(main.face);
+        holder.profSecond.setTypeface(main.face);
+        holder.profThird.setTypeface(main.face);
+        holder.profFourth.setTypeface(main.face);*/
     }
 
     @Override

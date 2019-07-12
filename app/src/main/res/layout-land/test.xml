@@ -11,20 +11,23 @@
         android:orientation="horizontal"
         android:background="@color/white"
         android:layout_weight="1">
+
         <Button
-            android:layout_width="wrap_content"
+            style="@style/Button"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_margin="5dp"
+            android:textSize="15dp"
+            android:singleLine="true"
+            android:layout_weight="1"
             android:onClick="ButtonMenuClick"
-            android:text="Меню"
-            style="@style/Button"
-            android:layout_weight="1"/>
+            android:text="Меню" />
         <ProgressBar
             android:id="@+id/progress"
             style="@style/ProgressBarHorizontal"
-            android:layout_weight="3"
+            android:layout_weight="4"
             android:layout_gravity="center_vertical|center_horizontal"
-            android:layout_width="match_parent"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_margin="5dp"
             android:indeterminate="false"
@@ -44,13 +47,15 @@
             android:layout_weight="3" />
         <TextView
             android:id="@+id/question"
-            android:layout_width = "match_parent"
-            android:layout_height = "match_parent"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
             android:layout_margin="5dp"
-            android:background="@drawable/message"
             android:autoSizeTextType="uniform"
+            android:autoSizeMaxTextSize="40dp"
+            android:autoSizeMinTextSize="20dp"
+            android:background="@drawable/message"
             android:textColor="@color/black"
-            android:layout_weight="1" />
+            android:layout_weight="1"/>
     </LinearLayout>
     <LinearLayout
         android:layout_width="match_parent"
@@ -65,21 +70,22 @@
             android:layout_gravity="center|bottom"
             android:layout_margin="5dp"
             android:layout_weight="1"
-            android:textStyle="italic"
             android:onClick="Button1Click"
-            android:textSize="15sp"
+            android:textSize="20dp"
+            android:singleLine="true"
             style="@style/Button"
             android:textColor="@color/black" />
         <Button
             android:id="@+id/secondButton"
+            style="@style/Button"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_gravity="center|bottom"
             android:layout_margin="5dp"
             android:layout_weight="1"
             android:onClick="Button2Click"
-            android:textSize="15sp"
-            style="@style/Button"
+            android:textSize="20dp"
+            android:singleLine="true"
             android:textColor="@color/black" />
     </LinearLayout>
 </LinearLayout>

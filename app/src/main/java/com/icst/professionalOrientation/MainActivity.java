@@ -4,10 +4,12 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.LinearLayoutManager;
 import android.os.Bundle;
+import android.widget.EditText;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.view.View;
 import android.widget.Button;
+import android.widget.LinearLayout;
 import android.text.SpannableString;
 import android.text.style.RelativeSizeSpan;
 import android.text.Spanned;
@@ -17,6 +19,7 @@ import java.util.List;
 import android.widget.ImageView;
 import java.util.Random;
 import android.content.res.Configuration;
+import android.graphics.Typeface;
 
 public class MainActivity extends AppCompatActivity
 {
@@ -31,6 +34,7 @@ public class MainActivity extends AppCompatActivity
     private int lastRobot; // последний выведенный на экран робот во время теста
     private boolean ifTestBegin; // проверка на то, что тест запущен и идет
     private boolean ifMainScreen; // проверка на то, что пользователь находится на стартовом экране
+    public Typeface face; // переменная для смены шрифта
 
     @Override
     protected void onCreate(Bundle savedInstanceState)
@@ -38,6 +42,7 @@ public class MainActivity extends AppCompatActivity
         super.onCreate(savedInstanceState);
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
         getSupportActionBar().hide();
+        face = Typeface.createFromAsset(getAssets(), "fonts/newFont.ttf");
         recom_prof = new int[3];
         leftButton = -1;
         rightButton = -1;
@@ -46,6 +51,7 @@ public class MainActivity extends AppCompatActivity
         ifTestBegin = false;
         ifMainScreen = true;
         setContentView(R.layout.activity_main);
+        //changeFont();
     }
 
     // обработка события нажатия на кнопку "НАЧАТЬ ТЕСТ"
@@ -147,6 +153,7 @@ public class MainActivity extends AppCompatActivity
         String[] profFirst = getResources().getStringArray(R.array.profFirst);
         String[] profSecond = getResources().getStringArray(R.array.profSecond);
         String[] profThird = getResources().getStringArray(R.array.profThird);
+        String[] profFourth = getResources().getStringArray(R.array.profFourth);
         List<Profession> professions = new ArrayList<>();
         if (recomendProf)
         {
@@ -154,7 +161,7 @@ public class MainActivity extends AppCompatActivity
             {
                 if (recom_prof[i] != -1)
                 {
-                    SpannableString[] buf = new SpannableString[5];
+                    /*SpannableString[] buf = new SpannableString[5];
                     buf[0] =  new SpannableString(prof[recom_prof[i]] + "\n\n");
                     buf[0].setSpan(new RelativeSizeSpan(2f), 0, prof[recom_prof[i]].length(), Spanned.SPAN_EXCLUSIVE_INCLUSIVE);
                     buf[1] = new SpannableString(desc[recom_prof[i]]);
@@ -165,7 +172,9 @@ public class MainActivity extends AppCompatActivity
                     buf[3].setSpan(new RelativeSizeSpan(1.5f), 0, profSecond[recom_prof[i]].length(), Spanned.SPAN_EXCLUSIVE_INCLUSIVE);
                     buf[4] =  new SpannableString(profThird[recom_prof[i]]);
                     buf[4].setSpan(new RelativeSizeSpan(1.5f), 0, profThird[recom_prof[i]].length(), Spanned.SPAN_EXCLUSIVE_INCLUSIVE);
-                    professions.add(new Profession(buf[0], buf[1], buf[2], buf[3], buf[4]));
+                    professions.add(new Profession(buf[0], buf[1], buf[2], buf[3], buf[4]));*/
+                    professions.add(new Profession(prof[recom_prof[i]], desc[recom_prof[i]], profFirst[recom_prof[i]],
+                            profSecond[recom_prof[i]], profThird[recom_prof[i]], profFourth[recom_prof[i]]));
                 }
             }
         }
@@ -173,7 +182,7 @@ public class MainActivity extends AppCompatActivity
         {
             for (int i = 0; i < prof.length; i++)
             {
-                SpannableString[] buf = new SpannableString[5];
+                /*SpannableString[] buf = new SpannableString[5];
                 buf[0] =  new SpannableString(prof[i] + "\n\n");
                 buf[0].setSpan(new RelativeSizeSpan(2f), 0, prof[i].length(), Spanned.SPAN_EXCLUSIVE_INCLUSIVE);
                 buf[1] = new SpannableString(desc[i]);
@@ -184,7 +193,8 @@ public class MainActivity extends AppCompatActivity
                 buf[3].setSpan(new RelativeSizeSpan(1.5f), 0, profSecond[i].length(), Spanned.SPAN_EXCLUSIVE_INCLUSIVE);
                 buf[4] =  new SpannableString(profThird[i]);
                 buf[4].setSpan(new RelativeSizeSpan(1.5f), 0, profThird[i].length(), Spanned.SPAN_EXCLUSIVE_INCLUSIVE);
-                professions.add(new Profession(buf[0], buf[1], buf[2], buf[3], buf[4]));
+                professions.add(new Profession(buf[0], buf[1], buf[2], buf[3], buf[4]));*/
+                professions.add(new Profession(prof[i], desc[i], profFirst[i], profSecond[i], profThird[i], profFourth[i]));
             }
         }
         ProfAdapter mAdapter = new ProfAdapter(this, professions);
@@ -230,6 +240,22 @@ public class MainActivity extends AppCompatActivity
         lastRobot = robotNum;
     }
 
+    // меняет шрифт всех текстовых элементов
+    private void changeFont()
+    {
+        TextView description = findViewById(R.id.oneProfBriefDesc);
+        TextView profFirst = findViewById(R.id.content_desc);
+        TextView profSecond = findViewById(R.id.content_competence);
+        TextView profThird = findViewById(R.id.content_salary);
+        TextView profFourth= findViewById(R.id.content_links);
+
+        description.setTypeface(face);
+        profFirst.setTypeface(face);
+        profSecond.setTypeface(face);
+        profThird.setTypeface(face);
+        profFourth.setTypeface(face);
+    }
+
     // выполняет свою работу ТОЛЬКО во время прохождения теста или нахождения на стартовом экране, меняет расположение элементов на экране
     // в зависимости от ориентации экрана для более удобного прохождения теста или для более удобного представления стартового меню
     @Override
@@ -269,10 +295,34 @@ public class MainActivity extends AppCompatActivity
     @Override
     public void onBackPressed()
     {
-        RefreshRecomProf();
-        curQuestionNum = 1;
-        ifTestBegin = false;
-        ifMainScreen = true;
-        setContentView(R.layout.activity_main);
+        if (ifTestBegin && curQuestionNum != 1)
+        {
+            if (curQuestionNum % 2 != 0)
+            {
+                curQuestionNum -= 1;
+            }
+            curQuestionNum /= 2;
+            for (int i = 0; recom_prof.length > i; i++)
+            {
+                if (recom_prof[i] == -1)
+                {
+                    if (i != 0)
+                    {
+                        recom_prof[i - 1] = -1;
+                    }
+                    break;
+                }
+            }
+            progress.incrementProgressBy(-1);
+            ShowQuestionAndChoices(curQuestionNum);
+        }
+        else
+        {
+            RefreshRecomProf();
+            curQuestionNum = 1;
+            ifTestBegin = false;
+            ifMainScreen = true;
+            setContentView(R.layout.activity_main);
+        }
     }
 }

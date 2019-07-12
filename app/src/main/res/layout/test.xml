@@ -11,9 +11,11 @@
         android:orientation="horizontal"
         android:layout_weight="1">
         <Button
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_margin="5dp"
+            android:textSize="15dp"
+            android:singleLine="true"
             android:onClick="ButtonMenuClick"
             android:text="Меню"
             style="@style/Button"
@@ -21,9 +23,9 @@
         <ProgressBar
             android:id="@+id/progress"
             style="@style/ProgressBarHorizontal"
-            android:layout_weight="3"
+            android:layout_weight="4"
             android:layout_gravity="center_vertical|center_horizontal"
-            android:layout_width="match_parent"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_margin="5dp"
             android:indeterminate="false"
@@ -36,17 +38,18 @@
         android:layout_weight="200">
         <TextView
             android:id="@+id/question"
-            android:layout_width = "match_parent"
-            android:layout_height = "match_parent"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
             android:background="@drawable/message2"
             android:autoSizeTextType="uniform"
+            android:autoSizeMaxTextSize="30dp"
+            android:autoSizeMinTextSize="20dp"
             android:textColor="@color/black"
-            android:textStyle="italic"
-            android:layout_margin="10dp"
-            android:layout_weight="9"/>
+            android:layout_margin="5dp"
+            android:layout_weight="16"/>
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="0dp"
             android:layout_weight="11"
             android:orientation="horizontal"
             android:layout_margin="10dp">
@@ -54,11 +57,11 @@
                 android:id="@+id/robot"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:layout_weight="1" />
+                android:layout_weight="3" />
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:layout_weight="1"
+                android:layout_weight="2"
                 android:orientation="vertical">
                 <Button
                     android:id="@+id/firstButton"
@@ -68,7 +71,7 @@
                     android:layout_margin="5dp"
                     android:layout_weight="1"
                     android:onClick="Button1Click"
-                    android:textSize="15sp"
+                    android:textSize="20dp"
                     style="@style/Button"
                     android:textColor="@color/black" />
                 <Button
@@ -79,7 +82,7 @@
                     android:layout_margin="5dp"
                     android:layout_weight="1"
                     android:onClick="Button2Click"
-                    android:textSize="15sp"
+                    android:textSize="20dp"
                     style="@style/Button"
                     android:textColor="@color/black" />
             </LinearLayout>

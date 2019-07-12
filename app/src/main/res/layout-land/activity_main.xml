@@ -9,47 +9,59 @@
     tools:context=".MainActivity">
     <ImageView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="0dp"
         android:src="@drawable/icst_logo"
-        android:layout_weight="3"/>
-    <RelativeLayout
+        android:layout_weight="15" />
+    <TextView
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="0dp"
+        android:text="Приложение для профориентации абитуриентов ИКНТ СПбПУ"
+        android:autoSizeTextType="uniform"
+        android:layout_margin="5dp"
+        android:textColor="@color/black"
+        android:gravity="center"
+        android:layout_weight="4" />
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
         android:orientation="vertical"
-        android:layout_weight="2"
-        android:layout_marginBottom="50dp"
+        android:layout_weight="20"
+        android:layout_marginTop="10dp"
         android:layout_marginLeft="10dp"
-        android:layout_marginRight="10dp">
+        android:layout_marginRight="10dp"
+        android:layout_marginBottom="20dp">
         <Button
             android:id="@+id/start"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_centerInParent="true"
-            android:layout_above="@+id/prof"
-            android:layout_marginBottom="10dp"
+            android:layout_height="0sp"
+            android:layout_margin="5dp"
             android:onClick="ButtonStartClick"
+            android:textSize="20dp"
             android:text="Начать тест"
             style="@style/Button"
-            android:textColor="@color/black" />
+            android:textColor="@color/black"
+            android:layout_weight="1" />
         <Button
             android:id="@+id/prof"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_centerInParent="true"
+            android:layout_height="0dp"
             android:onClick="ButtonProfessionsClick"
+            android:textSize="20dp"
             android:text="Профессии"
+            android:layout_margin="5dp"
             style="@style/Button"
-            android:textColor="@color/black" />
+            android:textColor="@color/black"
+            android:layout_weight="1" />
         <Button
             android:id="@+id/about"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/prof"
-            android:layout_centerInParent="true"
-            android:layout_marginTop="10dp"
+            android:layout_height="0dp"
+            android:layout_margin="5dp"
             android:onClick="ButtonAboutClick"
+            android:textSize="20dp"
             android:text="Информация"
             style="@style/Button"
-            android:textColor="@color/black" />
-    </RelativeLayout>
+            android:textColor="@color/black"
+            android:layout_weight="1" />
+    </LinearLayout>
 </LinearLayout>
