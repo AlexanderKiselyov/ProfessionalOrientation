@@ -27,7 +27,7 @@
         <item>Было бы тебе интересно разработать свой сайт?</item>
         <item>Да, интересно</item>
         <item>Нет, не интересно</item>
-        <item>1</item>
+        <item>11</item>
         <item>-1</item>
     </string-array>
     <string-array name="q3">
@@ -41,21 +41,21 @@
         <item>Вы хотите связать себя с компьютерными играми?</item>
         <item>Да</item>
         <item>Нет</item>
-        <item>2</item>
+        <item>12</item>
         <item>-1</item>
     </string-array>
     <string-array name="q5">
         <item>Вы хотите связать себя с компьютерными играми?</item>
         <item>Да, хочу</item>
         <item>Нет, не хочу</item>
-        <item>2</item>
+        <item>12</item>
         <item>-1</item>
     </string-array>
     <string-array name="q6">
         <item>Хочешь ли ты защищать системы от атак хакеров?</item>
         <item>Ага, хочу</item>
         <item>Не, не особо</item>
-        <item>3</item>
+        <item>0</item>
         <item>-1</item>
     </string-array>
     <string-array name="q7">
@@ -69,126 +69,126 @@
         <item>Как насчет копания в чужих проектах?</item>
         <item>Хочу!</item>
         <item>Не особо</item>
-        <item>7</item>
+        <item>13</item>
         <item>-1</item>
     </string-array>
     <string-array name="q9">
         <item>Как насчет копания в чужих проектах?</item>
         <item>Хочу!</item>
         <item>Не особо</item>
-        <item>7</item>
+        <item>13</item>
         <item>-1</item>
     </string-array>
     <string-array name="q10">
         <item>Как насчет копания в чужих проектах?</item>
         <item>Хочу!</item>
         <item>Не особо</item>
-        <item>7</item>
+        <item>13</item>
         <item>-1</item>
     </string-array>
     <string-array name="q11">
         <item>Что для тебя важнее: тестирование или оптимизация систем?</item>
         <item>Тестирование</item>
         <item>Оптимизация</item>
-        <item>4</item>
-        <item>8</item>
+        <item>9</item>
+        <item>13</item>
     </string-array>
     <string-array name="q12">
         <item>Это может быть операционная система и драйвер или процесс работы машинного обучения?</item>
         <item>Операционная система</item>
         <item>Машинное обучение</item>
-        <item>8</item>
-        <item>10</item>
+        <item>1</item>
+        <item>6</item>
     </string-array>
     <string-array name="q13">
         <item>Это может быть операционная система и драйвер или процесс работы машинного обучения?</item>
         <item>Операционная система</item>
         <item>Машинное обучение</item>
-        <item>8</item>
-        <item>10</item>
+        <item>1</item>
+        <item>6</item>
     </string-array>
     <string-array name="q14">
         <item>Чувствуешь ли ты в себе силы командовать людьми?</item>
         <item>Хочу командовать!</item>
         <item>Что-то нет этих сил</item>
-        <item>9</item>
+        <item>5</item>
         <item>-1</item>
     </string-array>
     <string-array name="q15">
-        <item>Ты хочешь больше работать с финансами или со смартфонами?</item>
+        <item>Ты хочешь больше реализовывать какое-нибудь ПО или работать со смартфонами?</item>
         <item>Мобильные технологии</item>
-        <item>Финансы</item>
-        <item>0</item>
-        <item>6</item>//поменять!!!
+        <item>ПО</item>
+        <item>10</item>
+        <item>3</item>
     </string-array>
     <string-array name="q19">
         <item>Технология мобильной связи?</item>
         <item>Конечно да!</item>
         <item>Как-то не очень</item>
-        <item>0</item>
+        <item>10</item>
         <item>-1</item>
     </string-array>
     <string-array name="q21">
         <item>Чувствуешь ли ты в себе силы командовать людьми?</item>
         <item>Хочу командовать!</item>
         <item>Что-то этих сил нет</item>
-        <item>9</item>
+        <item>5</item>
         <item>-1</item>
     </string-array>
     <string-array name="q22">
         <item>Интересна ли тебе работа операционной системы?</item>
         <item>Очень интересно</item>
         <item>Не очень интересно</item>
-        <item>8</item>
+        <item>1</item>
         <item>-1</item>
     </string-array>
     <string-array name="q23">
         <item>Есть желание продвинуться в машинном обучении?</item>
         <item>Есть желание!</item>
         <item>Нет желания</item>
-        <item>10</item>
-        <item>-1</item>
+        <item>1</item>
+        <item>2</item>
     </string-array>
     <string-array name="q26">
         <item>Есть желание научиться тестировать работоспособность системы?</item>
         <item>Да</item>
         <item>Нет</item>
-        <item>4</item>
-        <item>-1</item>
+        <item>9</item>
+        <item>2</item>
     </string-array>
     <string-array name="q27">
         <item>Как насчет копания в чужих проектах?</item>
         <item>Хочу!</item>
         <item>Не особо</item>
-        <item>7</item>
+        <item>13</item>
         <item>-1</item>
     </string-array>
     <string-array name="q28">
         <item>Было бы тебе интересно разработать свой сайт?</item>
         <item>Да, интересно</item>
         <item>Нет, не интересно</item>
-        <item>1</item>
+        <item>11</item>
         <item>-1</item>
     </string-array>
     <string-array name="q29">
         <item>Создавать сложные системы хранения информации или создавать сложные бизнес-системы?</item>
         <item>Хранение информации</item>
         <item>Бизнес-система</item>
-        <item>11</item>
-        <item>12</item>
+        <item>7</item>
+        <item>8</item>
     </string-array>
     <string-array name="q30">
         <item>Вы хотите связать себя с компьютерными играми?</item>
         <item>Да, хочу</item>
         <item>Нет, не хочу</item>
-        <item>2</item>
+        <item>12</item>
         <item>-1</item>
     </string-array>
     <string-array name="q31">
         <item>Было бы тебе интересно разработать свой сайт?</item>
         <item>Да, интересно</item>
         <item>Нет, не интересно</item>
-        <item>1</item>
+        <item>11</item>
         <item>-1</item>
     </string-array>
 </resources>

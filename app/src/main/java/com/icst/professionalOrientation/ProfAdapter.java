@@ -55,13 +55,6 @@ public class ProfAdapter extends RecyclerView.Adapter<ProfAdapter.ViewHolder> {
         holder.profSecond.setText(prof.getProfSecond());
         holder.profThird.setText(prof.getProfThird());
         holder.profFourth.setText(prof.getProfFourth());
-
-        /*MainActivity main = new MainActivity();
-        holder.description.setTypeface(main.face);
-        holder.profFirst.setTypeface(main.face);
-        holder.profSecond.setTypeface(main.face);
-        holder.profThird.setTypeface(main.face);
-        holder.profFourth.setTypeface(main.face);*/
     }
 
     @Override
